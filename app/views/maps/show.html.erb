@@ -8,7 +8,8 @@
   <p><%= post.content %></p>
   <p>Posted by: <%= post.user.username %></p>
   <!-- Time since creation doc: https://apidock.com/rails/ActionView/Helpers/DateHelper/distance_of_time_in_words-->
-  <p>Time since creation: <strong><%= distance_of_time_in_words(Time.current - post.created_at) %></strong> ago</p>
+  <!-- Time.current - post.created_at is in seconds -->
+  <p>Posted: <strong><%= distance_of_time_in_words(Time.current - post.created_at) %> ago</strong></p>
 <% end %>
 
 <%= link_to "Make New Post", new_post_path  %>
