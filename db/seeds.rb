@@ -14,12 +14,12 @@ puts 'Assembling users...'
 
 users_attributes = [
   {
-    name:         'John',
+    username:         'John',
     email:        'john@wick.com',
     password:     123456,
   },
   {
-    name:         'user',
+    username:         'user',
     email:        'user@user.com',
     password:     123456,
   }
