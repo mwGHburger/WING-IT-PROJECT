@@ -26,29 +26,27 @@ users_attributes = [
 ]
 
 User.create!(users_attributes)
-puts "Finished creating #{users_attributes.length} users!"
+puts "Created #{users_attributes.length} users"
 
 puts 'Adding Posts'
 
 
 posts_attributes = [
   {
-    name:         'Batman',
-    price:        1000,
-    description:  'In the name of his murdered parents, Bruce Wayne wages eternal war on the criminals of Gotham City. He is vengeance. He is the night. He is Batman.',
-    location:     'New York',
-    user_id:      User.first.id,
-    remote_photo_url:        "https://wallpapersite.com/images/pages/pic_h/18395.jpg"
+    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
+    lng:      31.336968,
+    lat:      -109.560959,
+    photo:    "",
+    user_id:  User.first.id
   },
   {
-    name:         'Superman',
-    price:        9000,
-    description:  'Faster than a speeding bullet, more powerful than a locomotive… The Man of Steel fights a never-ending battle for truth, justice, and the American way.',
-    location:     'Manhattan',
-    user_id:      User.first.id,
-    remote_photo_url:        "https://wallpapersite.com/images/pages/pic_h/15372.png"
+    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
+    lng:      30.295053,
+    lat:      -104.014528,
+    photo:    "",
+    user_id:  User.last.id
   }
 ]
 
-Superhero.create!(superheroes_attributes)
-puts "Finished creating #{superheroes_attributes.length} superheroes!"
+Post.create!(posts_attributes)
+puts "Created #{posts_attributes.length} Posts"
