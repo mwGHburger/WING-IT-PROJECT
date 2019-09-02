@@ -8,7 +8,7 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to posts_path
+      redirect_to map_path
     else
       render :new
     end
@@ -17,6 +17,6 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :lng, :lat, :photo)
+    params.require(:post).permit(:content)
   end
 end
