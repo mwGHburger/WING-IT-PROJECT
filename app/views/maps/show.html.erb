@@ -1,1 +1,15 @@
 <h1>Map</h1>
+
+<h2>NEED TO INSERT MAP</h2>
+
+<h2>All posts</h2>
+<% @posts.each do |post| %>
+  <p><%= post.id %></p>
+  <p><%= post.content %></p>
+  <p>Posted by: <%= post.user.username %></p>
+  <!-- Time since creation doc: https://apidock.com/rails/ActionView/Helpers/DateHelper/distance_of_time_in_words-->
+  <p>Time since creation: <strong><%= distance_of_time_in_words(Time.current - post.created_at) %></strong> ago</p>
+<% end %>
+
+<%= link_to "Make New Post", new_post_path  %>
+<%= link_to "Back to homepage", root_path %>
