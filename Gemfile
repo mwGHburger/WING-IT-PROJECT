@@ -14,7 +14,7 @@ gem 'sassc-rails'
 gem 'simple_form'
 gem 'uglifier'
 gem 'webpacker'
-
+gem 'geocoder'
 # new gems
 gem 'devise'
 #Added Cloudinary Gem
