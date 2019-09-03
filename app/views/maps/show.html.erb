@@ -2,6 +2,14 @@
 
 <h2>NEED TO INSERT MAP</h2>
 
+<div
+  id="map"
+  style="width: 100%;
+  height: 600px;"
+  data-markers="<%= @markers.to_json %>"
+  data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
+></div>
+
 <h2>All posts</h2>
 <% @posts.each do |post| %>
   <p><%= post.id %></p>
