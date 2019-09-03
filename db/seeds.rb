@@ -37,15 +37,15 @@ puts 'Adding Posts'
 posts_attributes = [
   {
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    lng:      31.336968,
-    lat:      -109.560959,
+    latitude:      31.336968,
+    longitude:      -109.560959,
     photo:    "",
     user_id:  User.first.id
   },
   {
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    lng:      30.295053,
-    lat:      -104.014528,
+    latitude:      30.295053,
+    longitude:      -104.014528,
     photo:    "",
     user_id:  User.last.id
   }
