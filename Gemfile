@@ -17,6 +17,11 @@ gem 'webpacker'
 
 # new gems
 gem 'devise'
+#Added Cloudinary Gem
+gem 'cloudinary', '~> 1.9.1'
+
+#Added CarrierWave Gem
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'
