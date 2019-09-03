@@ -17,11 +17,14 @@ users_attributes = [
     username:         'John',
     email:        'john@wick.com',
     password:     123456,
+    remote_photo_url: 'http://getwallpapers.com/wallpaper/full/7/f/1/950672-vertical-john-wick-wallpapers-1600x2560.jpg'
   },
   {
     username:         'user',
     email:        'user@user.com',
     password:     123456,
+    remote_photo_url: 'http://youtopiadesigns.com/wp-content/uploads/2016/06/user_icon.png'
+
   }
 ]
 
