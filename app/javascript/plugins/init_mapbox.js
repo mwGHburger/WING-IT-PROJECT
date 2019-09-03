@@ -6,7 +6,10 @@ const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
   return new mapboxgl.Map({
     container: 'map',
-    style: 'mapbox://styles/mapbox/streets-v10'
+    style: 'mapbox://styles/mapbox/streets-v10',
+    pitch: 60,
+    bearing: -60,
+    duration: 0
   });
 };
 
@@ -39,7 +42,8 @@ const initMapbox = () => {
       },
       trackUserLocation: true,
       fitBoundsOptions: {
-        maxZoom: 30
+        maxZoom: 45,
+        padding: 70
       }
     });
 
