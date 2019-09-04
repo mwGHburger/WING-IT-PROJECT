@@ -1,7 +1,7 @@
 <div style="position: relative;">
   <%= link_to "", post_path(post), class: "clickable" %>
-  <%= cl_image_tag post.photo, height: 30, width: 30, crop: :fill %>
+  <%= cl_image_tag post.user.photo, height: 60, width: 60, :radius=>50, crop: :fill %>
   <p class="text"><%= post.content %></p>
-  <p>Posted by: <%= post.user.username %></p>
+  <p>Posted by: <strong><%= post.user.username %></p></strong>
   <p>Posted: <strong><%= distance_of_time_in_words(Time.current - post.created_at) %> ago</strong></p>
 </div>

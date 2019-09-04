@@ -17,20 +17,35 @@ users_attributes = [
     username:         'John',
     email:        'john@wick.com',
     password:     123456,
-    remote_photo_url: 'http://getwallpapers.com/wallpaper/full/7/f/1/950672-vertical-john-wick-wallpapers-1600x2560.jpg'
+    remote_photo_url: 'https://www.indiewire.com/wp-content/uploads/2019/05/07956f40-77c4-11e9-9073-657a85982e73.jpg?w=780'
   },
   {
-    username:         'user',
-    email:        'user@user.com',
+    username:         'Tony',
+    email:        'tony@user.com',
     password:     123456,
-    remote_photo_url: 'http://youtopiadesigns.com/wp-content/uploads/2016/06/user_icon.png'
+    remote_photo_url: 'https://gcs.thesouthafrican.com/2018/10/Len-cropped-2017-96x96.jpg'
+  },
+  {
+    username:         'Alice',
+    email:        'alice@user.com',
+    password:     123456,
+    remote_photo_url: 'http://0.gravatar.com/avatar/30f790b7f70e98813f7393a487bf8f15?s=96&d=mm&r=g'
+  },
+  {
+    username:         'Susan',
+    email:        'susan@user.com',
+    password:     123456,
+    remote_photo_url: 'https://a.wattpad.com/useravatar/ToastedBagels.128.633251.jpg'
 
   }
 ]
 
 User.create!(users_attributes)
 puts "Created #{users_attributes.length} users"
-
+users = []
+all_users = User.all
+users << all_users
+all_users = users.flatten
 puts 'Adding Posts'
 
 
@@ -39,15 +54,43 @@ posts_attributes = [
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.824636,
     longitude:      144.992511,
-    photo:    "",
-    user_id:  User.first.id
+    remote_photo_url:    "https://cdn.theculturetrip.com/images/56-3958266-144290995102dfa723eae64bd7b9f6696eabd08b7c.jpg",
+    user_id:        all_users.sample.id
+  },
+  {
+    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
+    latitude:      -37.825636,
+    longitude:      144.99521,
+    remote_photo_url:    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fres-2.cloudinary.com%2Fsimpleview%2Fimage%2Fupload%2Fc_limit%2Cf_auto%2Ch_1200%2Cq_75%2Cw_1200%2Fv1%2Fclients%2Frichmond%2FDaniel_Lin_02_84dd0c44-e6c9-44c7-8b43-2d5ab1e30061.jpg&f=1",
+    user_id:        all_users.sample.id
+  },
+  {
+    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
+    latitude:      -37.827636,
+    longitude:      144.992211,
+    remote_photo_url:    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hiddencitysecrets.com.au%2Fwp-content%2Fuploads%2F2016%2F10%2FRoyal-Saxon-Bar-Richmond-Bars-Melbourne-Cocktail-Top-Best-Good-002.jpg&f=1",
+    user_id:        all_users.sample.id
+  },
+  {
+    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
+    latitude:      -37.823636,
+    longitude:      144.987511,
+    remote_photo_url:    "https://i2.au.reastatic.net/800x600/8a6ac19066a6b1e2ac93dd6cb1715cd6204701ab3d78690340f71f204c65681a/main.jpg",
+    user_id:        all_users.sample.id
+  },
+  {
+    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
+    latitude:      -37.824635,
+    longitude:      144.988511,
+    remote_photo_url:    "https://www.film.vic.gov.au/images/locations/City%20of%20Yarra/Richmond_-_Swan_street/mcyar-sd-SwanStreet-Richmond_004.jpg",
+    user_id:        all_users.sample.id
   },
   {
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.823151,
     longitude:     144.989238,
-    photo:    "",
-    user_id:  User.last.id
+    remote_photo_url:    "https://adventuresofaplusk.com/wp-content/uploads/2019/05/DSC_6285-1024x684.jpg",
+    user_id:        all_users.sample.id
   }
 ]
 

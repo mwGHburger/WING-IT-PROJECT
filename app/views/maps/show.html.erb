@@ -8,16 +8,9 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 ></div>
 
-<h2>All posts</h2>
-<% @posts.each do |post| %>
-  <p><%= post.id %></p>
-  <%= cl_image_tag post.photo, height: 300, width: 400, crop: :fill %>
-  <p><%= post.content %></p>
-  <p>Posted by: <%= post.user.username %></p>
-  <!-- Time since creation doc: https://apidock.com/rails/ActionView/Helpers/DateHelper/distance_of_time_in_words-->
-  <!-- Time.current - post.created_at is in seconds -->
-  <p>Posted: <strong><%= distance_of_time_in_words(Time.current - post.created_at) %> ago</strong></p>
-<% end %>
+<br>
 
-<%= link_to "Make New Post", new_post_path  %>
-<%= link_to "Back to homepage", root_path %>
+<%= link_to "Make New Post", new_post_path, class: 'btn btn-primary' %>
+
+<%= link_to "Back to homepage", root_path, class: 'btn btn-primary my-3 mx-3' %>
+
