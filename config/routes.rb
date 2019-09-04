@@ -6,7 +6,10 @@ Rails.application.routes.draw do
     # This route will coming later
     resources :comments, only: :create
     # This route will coming later
-    resources :post_upvotes, only: :create
+    member do
+      put "like" => "posts#vote"
+    end
+    resources :post_upvotes, only: :create # to remove
   end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   # Routes to main map
