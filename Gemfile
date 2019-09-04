@@ -17,11 +17,14 @@ gem 'webpacker'
 gem 'geocoder'
 # new gems
 gem 'devise'
-#Added Cloudinary Gem
+# Added Cloudinary Gem
 gem 'cloudinary', '~> 1.9.1'
 
-#Added CarrierWave Gem
+# Added CarrierWave Gem
 gem 'carrierwave', '~> 1.2'
+
+# Added acts as votable gem
+gem 'acts_as_votable'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

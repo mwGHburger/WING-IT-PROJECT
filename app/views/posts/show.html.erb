@@ -4,5 +4,14 @@
 <p>Posted by: <%= @post.user.username %></p>
 <p>Posted: <strong><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</strong></p>
 <br>
+<!-- upvote icon -->
+<%= link_to like_post_path(@post), class:"like-btn", method: :put, remote: :true do %>
+  <div>
+    <span><p><i class="fas fa-thumbs-up"></i></p></span>
+  </div>
+<% end %>
+<!-- upvote -->
+<span class="like-count"><%= @post.get_upvotes.size %></span>
+
 <%= link_to 'Keep Exploring!', map_path  %>
 </div>

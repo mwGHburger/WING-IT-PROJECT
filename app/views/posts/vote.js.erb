@@ -1,0 +1,10 @@
+var likeBtnEl = document.querySelector(".like-btn"); // needs to be var
+var likeCountEl = document.querySelector(".like-count"); // needs to be var
+
+<% if current_user.liked? @post %>
+  likeBtnEl.classList.add("liked") // adds 'like' class to upvote button
+<% else %>
+  likeBtnEl.classList.remove("liked") // adds 'like' class to upvote button
+<% end %>
+  // $('.likes-count').html("<%= @post.get_upvotes.size %>")
+likeCountEl.innerHTML = "<%= @post.get_upvotes.size %>"
