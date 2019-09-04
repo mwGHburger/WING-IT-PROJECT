@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class UpvoteTest < ActiveSupport::TestCase
+class PostUpvoteTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end
