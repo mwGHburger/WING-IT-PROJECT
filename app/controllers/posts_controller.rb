@@ -38,5 +38,6 @@ class PostsController < ApplicationController
 
   def set_post
     @post = Post.find(params[:id])
+    @comment = Comment.new
   end
 end
