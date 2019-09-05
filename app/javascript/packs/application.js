@@ -4,6 +4,7 @@ import 'mapbox-gl/dist/mapbox-gl.css'; // <-- you need to uncomment the styleshe
 // internal imports
 import { initMapbox } from '../plugins/init_mapbox';
 import '../components/post_location_input';
+import '../components/nearby_markers';
 
 initMapbox();
 
