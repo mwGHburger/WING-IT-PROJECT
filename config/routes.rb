@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   # Routes to homeapage
   root to: 'pages#home'
-  resources :posts, only: [:new, :create] do
+  resources :posts, only: [:index, :new, :create] do
     # This route will coming later
     resources :comments, only: :create
     # This route will coming later

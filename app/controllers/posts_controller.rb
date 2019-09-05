@@ -3,6 +3,21 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :vote]
   respond_to :js, :json, :html # respond to JS on all actions
 
+  def index
+    latMin = params[:latMin]
+    latMax = params[:latMax]
+    lngMin = params[:lngMin]
+    lngMax = params[:lngMax]
+    @posts = Post.where(["latitude > ?", latMin])
+                 .where(["latitude < ?", latMax])
+                 .where(["longitude > ?", lngMin])
+                 .where(["longitude < ?", lngMax])
+    respond_to do |format|
+      format.html
+      format.json { render json: @posts }
+    end
+  end
+
   def show
     set_post
   end
