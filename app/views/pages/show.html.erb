@@ -1,0 +1,15 @@
+<h1> Welcome to your Dashboard! </h1>
+<h2><%= current_user.username %></h2>
+
+<p><% current_user.posts.each do |post| %></p>
+  <%= cl_image_tag post.photo, height: 50, width: 50, crop: :fill %>
+  <%= post.content %>
+
+  <p>Upvotes: <%= post.get_upvotes.size %></p>
+<p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
+<% end %>
+<h2>BookMarks</h2>
+
+
+
+

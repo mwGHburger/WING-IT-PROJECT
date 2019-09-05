@@ -15,4 +15,5 @@ Rails.application.routes.draw do
   # Routes to main map
   get "map", to: "maps#show", as: :map
   get "posts/:id", to: "posts#show", as: :post
+  get "dashboard/:id", to: "pages#show", as: :dashboard
 end
