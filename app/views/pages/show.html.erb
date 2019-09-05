@@ -6,9 +6,17 @@
   <%= post.content %>
 
   <p>Upvotes: <%= post.get_upvotes.size %></p>
-<p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
+<p><%= post.created_at.strftime("Posted on: %m/%d/%Y") %></p>
 <% end %>
+
 <h2>BookMarks</h2>
+
+<% current_user.bookmarks.each do |bookmark| %>
+  <%= cl_image_tag bookmark.post.photo, height: 50, width: 50, crop: :fill %>
+  <p>By <%= bookmark.user.username %></p>
+  <p><%= bookmark.post.content %></p>
+  <p>Posted: <%= bookmark.post.created_at.strftime("Posted on: %m/%d/%Y") %></p>
+<% end %>
 
 
 

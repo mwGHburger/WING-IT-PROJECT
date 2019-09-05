@@ -28,5 +28,9 @@
   <span class="like-count"><%= @post.get_upvotes.size %></span>
   <br>
   </div>
+  <!-- Bookmark button -->
+
+  <%= link_to "Bookmark", post_bookmarks_path(@post), method: :post %>
+
   <%= link_to 'Keep Exploring!', map_path  %>
 </div>
