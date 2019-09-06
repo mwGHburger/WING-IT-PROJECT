@@ -39,7 +39,7 @@ const addPostsToMap = (map, posts) => {
   posts.forEach((post) => {
     // stops loading markers on top of each other
     //if (!currentMarkers[post.id]) {
-      const popup = new mapboxgl.Popup().setHTML(`<img src="${post.photo.url}">`); // Need to revisit this for customising windows
+      const popup = new mapboxgl.Popup().setHTML()//`<img src="${post.photo.url}">`; // Need to revisit this for customising windows
       currentMarkers[post.id] = new mapboxgl.Marker()
         .setLngLat([ post.longitude, post.latitude ])
         .setPopup(popup) // For popup windows
