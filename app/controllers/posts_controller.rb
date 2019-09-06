@@ -35,6 +35,7 @@ class PostsController < ApplicationController
 
   def show
     set_post
+    @bookmark_exists = Bookmark.where(post: @post, user: current_user) ==   [] ? false : true
   end
 
   def new

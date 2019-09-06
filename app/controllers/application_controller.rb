@@ -6,4 +6,11 @@ class ApplicationController < ActionController::Base
     # For additional fields in app/views/devise/registrations/new.html.erb
     devise_parameter_sanitizer.permit(:sign_up, keys: [:username, :photo])
   end
+
+  # create helper method
+  def bookmark_text
+    @bookmark_exists ? '<i class="fas fa-bookmark"></i>' : '<i class="far fa-bookmark"></i>'
+  end
+
+  helper_method :bookmark_text
 end

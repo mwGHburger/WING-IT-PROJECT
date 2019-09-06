@@ -1,5 +1,5 @@
 import mapboxgl from 'mapbox-gl';
-import fetch from 'cross-fetch';
+import fetch from 'cross-fetch'; // required for fetch json file from browser
 
 const mapElement = document.getElementById('map');
 const postCardPhotoEl = document.querySelector('.js-post-photo');
@@ -8,8 +8,6 @@ const postCardContentEl = document.querySelector('.js-post-content');
 const postCardAvatarEl = document.querySelector('.js-user-avatar');
 const postCardUrlEl = document.querySelector('.js-post-link');
 const currentMarkers = {};
-
-
 
 const geolocateControl = new mapboxgl.GeolocateControl({
   positionOptions: {
@@ -86,18 +84,6 @@ const initMapbox = () => {
       geolocateControl.trigger();
       console.log("ok")
     });
-
-    // Test
-    // Listens when current user position is available
-    geolocateControl.on('geolocate',(e) => {
-      console.log("wow")
-    });
-    // Listens if current user position is not avaiable
-    geolocateControl.on('error',(e) => {
-      alert("Sorry your Geolocation is not available!")
-    });
-    //Test
-
 
     // Mapbox listens to the event where the map boundaries shift
     map.on('moveend', (e) => {
