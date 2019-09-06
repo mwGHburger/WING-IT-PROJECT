@@ -3,8 +3,8 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   acts_as_voter
   has_many :posts, dependent: :destroy
-  has_many :post_upvotes
   has_many :comments, dependent: :destroy
+  has_many :bookmarks, dependent: :destroy
   mount_uploader :photo, PhotoUploader
 
   devise :database_authenticatable, :registerable,
