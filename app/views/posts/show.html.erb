@@ -30,7 +30,9 @@
   </div>
   <!-- Bookmark button -->
 
-  <%= link_to "Bookmark", post_bookmarks_path(@post), method: :post %>
-
+  <%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
+    <%= raw bookmark_text %> <!-- to allow for HTML injections -->
+  <% end %>
+  <%= link_to "See your dashboard", dashboard_path(current_user) %>
   <%= link_to 'Keep Exploring!', map_path  %>
 </div>

@@ -1,46 +1,22 @@
 class BookmarksController < ApplicationController
-  def create
-    @post = Post.find(params[:post_id])
-    @bookmark = Bookmark.new(params[:id])
-    @bookmark.post = @post
-    @bookmark.user = current_user
-
-    # Checking if post's bookmarks is empty
-    if @post.bookmarks.empty?
-      if @bookmark.save
-        redirect_to dashboard_path(current_user)
-        raise
-      else
-        render 'posts/show'
-        raise
-      end
+  def update
+    # checks if favourite exists
+    @bookmark = Bookmark.where(post: Post.find(params[:post]), user: current_user) # output is array
+    if @bookmark === []
+      # create bookmark
+      Bookmark.create(post: Post.find(params[:post]), user: current_user)
+      @bookmark_exists = true
+    else
+      # delete favourite
+      @bookmark.destroy_all
+      @bookmark_exists = false
     end
 
-    # Checking if bookmark already exists
-    @post.bookmarks.each do |bookmark|
-      if bookmark.user === current_user
-        raise
-      else
-        if @bookmark.save
-          redirect_to dashboard_path(current_user)
-          raise
-        else
-          render 'posts/show'
-          raise
-        end
-      end
+    # page render
+    respond_to do |format|
+      format.html {}
+      format.js {}
     end
 
   end
-
-  # def destroy
-  #   @bookmark = Bookmark.find(params[:id])
-  #   @bookmark.destroy
-  # end
-
-  # private
-
-  # def bookmark_params
-  #   params.require(:bookmark).permit(:post_id)
-  # end
 end

@@ -13,10 +13,13 @@
 
 <% current_user.bookmarks.each do |bookmark| %>
   <%= cl_image_tag bookmark.post.photo, height: 50, width: 50, crop: :fill %>
-  <p>By <%= bookmark.user.username %></p>
+  <p>By <%= bookmark.post.user.username %></p>
   <p><%= bookmark.post.content %></p>
   <p>Posted: <%= bookmark.post.created_at.strftime("Posted on: %m/%d/%Y") %></p>
+  <%= link_to "Check out post", post_path(bookmark.post) %>
 <% end %>
+
+
 
 
 
