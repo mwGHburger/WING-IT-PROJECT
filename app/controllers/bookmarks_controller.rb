@@ -15,13 +15,11 @@ class BookmarksController < ApplicationController
         raise
       end
     end
-    raise
 
     # Checking if bookmark already exists
     @post.bookmarks.each do |bookmark|
       if bookmark.user === current_user
         raise
-        bookmark.destroy
       else
         if @bookmark.save
           redirect_to dashboard_path(current_user)
