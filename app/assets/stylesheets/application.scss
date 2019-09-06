@@ -11,3 +11,18 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+
+
+.map-marker {
+  background-color: orange;
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+
+  img {
+    width: 100%;
+    border-radius: 50%;
+
+  }
+}

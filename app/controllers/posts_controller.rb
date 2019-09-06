@@ -14,12 +14,28 @@ class PostsController < ApplicationController
                  .where(["longitude < ?", lngMax])
     respond_to do |format|
       format.html
-      format.json { render json: @posts }
+      @post_markers = @posts.map do |post|
+        {
+          time: post.created_at.strftime("Posted on: %m/%d/%Y"),
+          content: post.content,
+          post_photo: post.photo.url,
+          id: post.id,
+          url: post_path(post),
+          latitude: post.latitude,
+          longitude: post.longitude,
+          user: {
+            name: post.user.username,
+            photo: post.user.photo
+          }
+        }
+      end
+      format.json { render json: @post_markers }
     end
   end
 
   def show
     set_post
+    @bookmark_exists = Bookmark.where(post: @post, user: current_user) ==   [] ? false : true
   end
 
   def new

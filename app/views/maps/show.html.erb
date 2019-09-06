@@ -1,5 +1,4 @@
-<h1>Map</h1>
-
+<%= link_to "Make New Post", new_post_path, class: 'btn btn-primary' %>
 <div
   id="map"
   style="width: 100%;
@@ -7,11 +6,9 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 >
 </div>
-  <div class="card-container">Card Container</div>
+  <div class="card-container"> <%= render 'posts/card', post_markers: @post_markers %> </div>
 
 <br>
-
-<%= link_to "Make New Post", new_post_path, class: 'btn btn-primary' %>
 
 <%= link_to "Back to homepage", root_path, class: 'btn btn-primary my-3 mx-3' %>
 

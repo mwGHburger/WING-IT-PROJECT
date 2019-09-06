@@ -59,8 +59,8 @@ posts_attributes = [
   },
   {
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -34.825636,
-    longitude:      143.99521,
+    latitude:      -37.8136,
+    longitude:      144.9631,
     remote_photo_url:    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fres-2.cloudinary.com%2Fsimpleview%2Fimage%2Fupload%2Fc_limit%2Cf_auto%2Ch_1200%2Cq_75%2Cw_1200%2Fv1%2Fclients%2Frichmond%2FDaniel_Lin_02_84dd0c44-e6c9-44c7-8b43-2d5ab1e30061.jpg&f=1",
     user_id:        all_users.sample.id
   },
@@ -73,22 +73,22 @@ posts_attributes = [
   },
   {
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -31.823636,
-    longitude:      149.987511,
+    latitude:      -37.9021,
+    longitude:      145.0411,
     remote_photo_url:    "https://i2.au.reastatic.net/800x600/8a6ac19066a6b1e2ac93dd6cb1715cd6204701ab3d78690340f71f204c65681a/main.jpg",
     user_id:        all_users.sample.id
   },
   {
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -30.824635,
-    longitude:      142.988511,
+    latitude:      -37.9525,
+    longitude:      145.0123,
     remote_photo_url:    "https://www.film.vic.gov.au/images/locations/City%20of%20Yarra/Richmond_-_Swan_street/mcyar-sd-SwanStreet-Richmond_004.jpg",
     user_id:        all_users.sample.id
   },
   {
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -36.823151,
-    longitude:     144.939238,
+    latitude:      -37.8400,
+    longitude:     144.9890,
     remote_photo_url:    "https://adventuresofaplusk.com/wp-content/uploads/2019/05/DSC_6285-1024x684.jpg",
     user_id:        all_users.sample.id
   }
