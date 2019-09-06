@@ -20,12 +20,12 @@ class PostsController < ApplicationController
           content: post.content,
           post_photo: post.photo.url,
           id: post.id,
+          url: post_path(post),
           latitude: post.latitude,
           longitude: post.longitude,
           user: {
             name: post.user.username,
             photo: post.user.photo
-
           }
         }
       end

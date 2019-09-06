@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   devise_for :users
   # Routes to homeapage
   root to: 'pages#home'
-  resources :posts, only: [:index, :new, :create] do
-    # comments feature
+  resources :posts, only: [:index, :new, :create, :show] do
+    # This route will coming later
     resources :comments, only: :create
     # upvote feature
     member do
@@ -15,6 +15,6 @@ Rails.application.routes.draw do
   # Routes to main map
   get 'bookmarks/update'
   get "map", to: "maps#show", as: :map
-  get "posts/:id", to: "posts#show", as: :post
+  # get "posts/:id", to: "posts#show", as: :post
   get "dashboard/:id", to: "pages#show", as: :dashboard
 end
