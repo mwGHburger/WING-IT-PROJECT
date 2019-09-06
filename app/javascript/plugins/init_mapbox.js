@@ -2,6 +2,11 @@ import mapboxgl from 'mapbox-gl';
 import fetch from 'cross-fetch';
 
 const mapElement = document.getElementById('map');
+const postCardPhotoEl = document.querySelector('.js-post-photo');
+const postCardUsernameEl = document.querySelector('.js-username');
+const postCardContentEl = document.querySelector('.js-post-content');
+const postCardAvatarEl = document.querySelector('.js-user-avatar');
+const postCardUrlEl = document.querySelector('.js-post-link');
 const currentMarkers = {};
 
 
@@ -39,9 +44,24 @@ const addPostsToMap = (map, posts) => {
     // stops loading markers on top of each other
     //if (!currentMarkers[post.id]) {
       const popup = new mapboxgl.Popup().setHTML()//`<img src="${post.photo.url}">`; // Need to revisit this for customising windows
-      currentMarkers[post.id] = new mapboxgl.Marker()
+
+      const markerEl = document.createElement("div");
+      markerEl.classList.add("map-marker")
+      markerEl.innerHTML = `<img src=${post.user.photo.url}>`
+      markerEl.addEventListener('click', () => {
+        console.log(post)
+        postCardPhotoEl.setAttribute("src", post.post_photo)
+        postCardUrlEl.setAttribute("href", post.url)
+        postCardAvatarEl.setAttribute("src", post.user.photo.url)
+        postCardUsernameEl.innerHTML = post.user.name
+        postCardContentEl.innerHTML = post.content
+
+      });
+
+      currentMarkers[post.id] = new mapboxgl.Marker({
+        element:markerEl
+      })
         .setLngLat([ post.longitude, post.latitude ])
-        .setPopup(popup) // For popup windows
         .addTo(map);
     //}
   });
