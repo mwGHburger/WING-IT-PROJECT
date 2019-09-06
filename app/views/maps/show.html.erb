@@ -7,7 +7,7 @@
   data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>"
 >
 </div>
-  <div class="card-container">Card Container</div>
+  <div class="card-container"> <%= render 'posts/card', post_markers: @post_markers %> </div>
 
 <br>
 

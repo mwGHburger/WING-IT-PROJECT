@@ -20,12 +20,12 @@ class PostsController < ApplicationController
           content: post.content,
           post_photo: post.photo.url,
           id: post.id,
+          url: post_path(post),
           latitude: post.latitude,
           longitude: post.longitude,
           user: {
             name: post.user.username,
             photo: post.user.photo
-
           }
         }
       end
@@ -35,6 +35,7 @@ class PostsController < ApplicationController
 
   def show
     set_post
+    @bookmark_exists = Bookmark.where(post: @post, user: current_user) ==   [] ? false : true
   end
 
   def new
