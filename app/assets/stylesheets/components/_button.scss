@@ -5,3 +5,12 @@
   border-radius: 50px;
   transition: opacity 0.3s ease;
 }
+
+.btn-time-posted {
+  color: $dark;
+  font-size: 6px;
+  border: none;
+  background-color: $navy;
+  transition: opacity 0.3s ease;
+  color: white;
+}
