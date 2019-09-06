@@ -3,6 +3,7 @@ import fetch from 'cross-fetch';
 
 const mapElement = document.getElementById('map');
 
+
 const currentMarkers = {};
 
 
@@ -39,7 +40,7 @@ const addPostsToMap = (map, posts) => {
   posts.forEach((post) => {
     // stops loading markers on top of each other
     //if (!currentMarkers[post.id]) {
-      const popup = new mapboxgl.Popup().setHTML(`To be customized`); // Need to revisit this for customising windows
+      const popup = new mapboxgl.Popup().setHTML(``); // Need to revisit this for customising windows
       currentMarkers[post.id] = new mapboxgl.Marker()
         .setLngLat([ post.longitude, post.latitude ])
         .setPopup(popup) // For popup windows
