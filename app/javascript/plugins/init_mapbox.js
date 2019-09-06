@@ -2,8 +2,6 @@ import mapboxgl from 'mapbox-gl';
 import fetch from 'cross-fetch';
 
 const mapElement = document.getElementById('map');
-
-
 const currentMarkers = {};
 
 
