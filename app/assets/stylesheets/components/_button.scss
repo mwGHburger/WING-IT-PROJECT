@@ -7,10 +7,15 @@
 }
 
 .btn-time-posted {
+  text-align: center;
+  width: 54px;
+  height: 12px;
+  padding: 2px;
+  border-radius: 6px;
   color: $dark;
   font-size: 6px;
   border: none;
-  background-color: $navy;
+  background-color: #f39c0f;
   transition: opacity 0.3s ease;
   color: white;
 }
