@@ -15,9 +15,18 @@ const geolocateControl = new mapboxgl.GeolocateControl({
   },
   trackUserLocation: true,
   fitBoundsOptions: {
-    maxZoom: 15 // Zoom adjustment
+    maxZoom: 15,  // Zoom adjustment
+    linear: false
   }
 });
+
+// const currentLatLng = () => {
+//   return navigator.geolocation.getCurrentPosition(success);
+// }
+
+// const success = (position) => {
+//   return [position.coords.latitude, position.coords.longitude];
+// };
 
 // Create Map
 const buildMap = () => {
@@ -25,6 +34,7 @@ const buildMap = () => {
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/streets-v10',
+    duration: 0,
     pitch: 60,
     //bearing: -60,
   });
@@ -65,24 +75,15 @@ const addPostsToMap = (map, posts) => {
   });
 };
 
-// Fit maps to Markers
-// const fitMapToMarkers = (map, markers) => {
-//   const bounds = new mapboxgl.LngLatBounds();
-//   markers.forEach(marker => bounds.extend([ marker.longitude, marker.latitude ]));
-//   map.fitBounds(bounds, { duration: 0, padding: 70, maxZoom: 30 });
-// };
-
 const initMapbox = () => {
   if (mapElement) {
     const map = buildMap();
-    // const markers = JSON.parse(mapElement.dataset.markers);
-    // fitMapToMarkers(map, markers);
     // Add Current Location via GeoLocate Control
     map.addControl(geolocateControl);
     // subscribe to event
     map.on('load', (e) => {
       geolocateControl.trigger();
-      console.log("ok")
+      console.log("trigger geolocate control")
     });
 
     // Mapbox listens to the event where the map boundaries shift
@@ -98,12 +99,12 @@ const initMapbox = () => {
           'Accept': 'application/json' // Asking for a json response from browser
         }
       })
-        .then(res => res.json()) // Receive JSON response and converting it into usable format
-        .then(postsResponse => {
-          addPostsToMap(map, postsResponse); // Add posts to map
-          console.log(postsResponse);
-        });
-  });
+      .then(res => res.json()) // Receive JSON response and converting it into usable format
+      .then(postsResponse => {
+        addPostsToMap(map, postsResponse); // Add posts to map
+        console.log(postsResponse);
+      });
+    });
   }
 };
 

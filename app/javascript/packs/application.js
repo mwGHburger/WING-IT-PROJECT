@@ -7,5 +7,3 @@ import '../components/post_location_input';
 import '../components/nearby_markers';
 
 initMapbox();
-
-

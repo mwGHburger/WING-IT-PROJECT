@@ -1,20 +1,24 @@
-<div class = "container">
-  <h2>Welcome <strong><%= current_user.username %>!</strong></h2>
-  <h2 class = "mb-3">These are your posts: <%= current_user.username %></h2>
-  <% current_user.posts.each do |post| %>
-    <%= cl_image_tag post.photo, height: 50, width: 50, crop: :fill %>
-    <%= post.content %>
-    <p>Upvotes: <%= post.get_upvotes.size %></p>
-    <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
-  <% end %>
 
-  <h2>BookMarks</h2>
+<%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill %>
+<h1><%= current_user.username %></h1>
 
-  <% current_user.bookmarks.each do |bookmark| %>
-    <%= cl_image_tag bookmark.post.photo, height: 50, width: 50, crop: :fill %>
-    <p>By <%= bookmark.post.user.username %></p>
-    <p><%= bookmark.post.content %></p>
-    <p>Posted: <%= bookmark.post.created_at.strftime("Posted on: %m/%d/%Y") %></p>
-    <%= link_to "Check out post", post_path(bookmark.post) %>
-  <% end %>
-</div>
+<h2>My posts</h2>
+
+<% current_user.posts.each do |post| %>
+  <%= cl_image_tag post.photo, height: 50, width: 50, crop: :fill %>
+  <p><%= post.content %></p>
+  <p>Upvotes: <%= post.get_upvotes.size %></p>
+  <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
+  <%= link_to "Check out post", post_path(post) %>
+<% end %>
+
+<h2>My BookMarks</h2>
+
+<% current_user.bookmarks.each do |bookmark| %>
+  <%= cl_image_tag bookmark.post.photo, height: 50, width: 50, crop: :fill %>
+  <p>By <%= bookmark.post.user.username %></p>
+  <p><%= bookmark.post.content %></p>
+  <p>Posted: <%= bookmark.post.created_at.strftime("Posted on: %m/%d/%Y") %></p>
+  <%= link_to "Check out post", post_path(bookmark.post) %>
+<% end %>
+
