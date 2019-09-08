@@ -17,7 +17,6 @@ const currentPositionSuccess = (position) => {
 
 const currentPositionError = () => {
   locationLoadingEl.innerText = 'Sorry we don\'t have a location';
-
 }
 
 if (latInputEl || lonInputEl) {
