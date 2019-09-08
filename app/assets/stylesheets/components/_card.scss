@@ -1,43 +1,101 @@
-.card-trip {
+.card-small {
   width: 180px;
   height: 248px;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  border-radius: 16px;
+  border-radius: 10px;
+  position: relative;
 }
 
-.card-trip > img {
-  height: 200px;
+.card-small > img {
+  height: 100%;
   width: 100%;
   object-fit: cover;
 }
 
-.card-trip h2 {
+.card-small h2 {
   font-size: 10px;
   font-weight: bold;
   margin: 0;
+  color: $white;
+  opacity: 1;
 }
 
-.card-trip p {
+.card-small p {
   font-size: 8px;
   margin: 0;
+  color: $white;
+  opacity: 1;
 }
 
-.card-trip .card-trip-infos {
-  padding: 16px;
+.card-small .card-small-infos {
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
-  background: transparent;
+  border-radius: 10px;
+  bottom: 60px;
+  background-color: rgba(153, 153, 153, 0.6);
+
 }
 
-.card-trip-infos .card-trip-user {
+.card-small-infos .card-small-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
-  width: 40px;
+  left: 8px;
+  top: -176px;
+  width: 32px;
 }
 
+// --------------------------------------------------------------------------------
 
+.card-large {
+  width: 344px;
+  height: 440px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  border-radius: 10px;
+  position: relative;
+}
+
+.card-large > img {
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-large h2 {
+  font-size: 10px;
+  font-weight: bold;
+  margin: 0;
+  color: $white;
+  opacity: 1;
+}
+
+.card-large p {
+  font-size: 8px;
+  margin: 0;
+  color: $white;
+  opacity: 1;
+}
+
+.card-large .card-large-infos {
+  padding: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+  border-radius: 10px;
+  bottom: 108px;
+  background-color: rgba(153, 153, 153, 0.6);
+
+}
+
+.card-large-infos .card-large-user {
+  position: absolute;
+  left: 8px;
+  top: -332px;
+  width: 32px;
+}

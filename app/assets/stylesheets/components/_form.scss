@@ -1,0 +1,42 @@
+
+.form-control {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid #e5e5e5;
+  // border-radius: 40px;
+  color: #e5e5e5;
+}
+
+.form-control::placeholder {
+  color: #e5e5e5;
+  background-color: none;
+}
+
+.form-inputs {
+  width: 256px;
+  height: 300px;
+}
+
+.page-sign-in {
+  background-attachment: fixed; /* keeps the image in the same place when scrolling */
+  background-size: cover; /* shows the whole image/background */
+  background-position: center;
+  width: 100%;
+  height: 100vh; /* fill this header with 100% of the viewpoint. */
+  color: #e5e5e5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.links {
+  text-align: center;
+  color: #e5e5e5;
+
+  .link-forgot-password {
+    text-decoration: underline;
+    padding-bottom: 300px;
+  }
+
+}
+
