@@ -1,0 +1,6 @@
+var showHTML = "<%= j render 'card', post: @post %>";
+
+generalModal.find('.modal-content')
+            .html(showHTML);
+
+generalModal.modal("show");

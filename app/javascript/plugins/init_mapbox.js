@@ -32,6 +32,8 @@ const buildMap = () => {
     style: 'mapbox://styles/mapbox/light-v10',
     duration: 0,
     pitch: 60,
+    center: [localStorage.getItem("lon"), localStorage.getItem("lat")],
+    zoom: 15
     //bearing: -60,
   });
 };
@@ -56,7 +58,10 @@ const addPostsToMap = (map, posts) => {
 
 
       teaserCardEl.addEventListener('click', () => {
-        window.location.href = post.url;
+        Rails.ajax({
+          type: "GET",
+          url: post.url + ".js"
+        })
       })
 
       const markerEl = document.createElement("div");
