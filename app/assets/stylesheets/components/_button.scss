@@ -27,4 +27,52 @@
   border-radius: 40px;
 }
 
+// Changing upload photo button
+.custom-file-upload {
+  border: 1px solid white;
+  border-radius: 25px;
+  padding: 8px 16px;
+  color: white;
+  margin: 10px auto;
+  width: 135px;
+  text-align: center;
+  &:after {
+    content: " Upload";
+  }
+  &:hover {
+    background: white;
+    color: black;
+    transition: 0.2s;
+  }
+}
+// Hides upload photo button
+input[type="file"] {
+    display: none;
+}
+
+// Make post button
+.btn-make-post {
+  border: 1px solid white;
+  background: white;
+  border-radius: 25px;
+  padding: 8px 16px;
+  color: black;
+  margin: 10px auto;
+  width: 135px;
+  text-align: center;
+  &:hover {
+    background: rgba(255,255,255,0);
+    color: white;
+    transition: 0.2s;
+  }
+}
+
+.btn-exit::before {
+  color: white;
+  font-size: 32px;
+  position: absolute;
+  right: 24px;
+  top: 16px;
+  opacity: .8;
+}
 
