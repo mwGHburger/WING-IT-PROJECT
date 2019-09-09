@@ -1,4 +1,5 @@
 <%= render 'shared/navbar' %>
+
 <div class="container container-post-show">
   <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
   <p class="text"><%= @post.content %></p>
@@ -38,6 +39,50 @@
   <% end %>
   <%= link_to "See your dashboard", dashboard_path(current_user) %>
   <%= link_to 'Keep Exploring!', map_path  %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-offset-3">
+
+      <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+      <p class="text"><%= @post.content %></p>
+      <p>Posted by: <%= @post.user.username %></p>
+      <p>Posted: <strong><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</strong></p>
+      <br>
+      <!-- Comments -->
+      <div id="comments">
+        <% if @post.comments.blank? %>
+          Be the first to leave a review!
+        <% else %>
+          <% @post.comments.each do |comment| %>
+            <%= render 'comments/show', comment: comment %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= render 'comments/form', post: @post, comment: @comment %>
+      <br>
+      <div class="d-flex">
+      <!-- upvote icon -->
+      <%= link_to like_post_path(@post), class:"like-btn", method: :put, remote: :true do %>
+        <div>
+          <span><p><i class="fas fa-thumbs-up"></i></p></span>
+        </div>
+      <% end %>
+      <!-- upvote -->
+      <span class="like-count"><%= @post.get_upvotes.size %></span>
+      <br>
+      </div>
+      <!-- Bookmark button -->
+
+      <%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
+        <%= raw bookmark_text %> <!-- to allow for HTML injections -->
+      <% end %>
+      <%= link_to "See your dashboard", dashboard_path(current_user) %>
+      <%= link_to 'Keep Exploring!', map_path  %>
+
+    </div>
+  </div>
 </div>
 
 
