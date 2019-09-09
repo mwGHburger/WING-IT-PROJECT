@@ -4,26 +4,27 @@
           <h1><%= current_user.username.capitalize %></h1>
     </div>
       <ul class="nav nav-tabs mr-6" id="myTab" role="tablist">
-        <li class="nav-item">
-        <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My posts
-        <div class = "post-lists">
-              <!-- <h2>My Posts</h2> -->
-              <div class ="dash-wrap">
-                <% current_user.posts.each do |post| %>
-                <div class="card-product"style="background-image: url(<%= cl_image_path post.photo,   crop: :fill %>);">
-                  <div class ="info">
-                  <p><%= post.content %></p>
-                  <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
-                  <p>Upvotes: <%= post.get_upvotes.size %></p>
-                  <%= link_to "Check out post", post_path(post) %>
-              </div>
+        <li class="js-nav-item">
+        <a class="js-nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My posts
+
+    <div class = "post-lists">
+        <div class ="dash-wrap">
+          <% current_user.posts.each do |post| %>
+             <div class="card-product"style="background-image: url(<%= cl_image_path post.photo,   crop: :fill %>);">
+             <div class ="info">
+             <p><%= post.content %></p>
+             <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
+               <p>Upvotes: <%= post.get_upvotes.size %></p>
+               <%= link_to "Check out post", post_path(post) %>           </div>
             </div>
-          <% end %>
-        </div>
-      </div>
+           <% end %>
+         </div>
+     </div>
+
+
       </a>
       </li>
-        <li class="nav-item">
+        <li class="js-nav-item">
       <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks
       <div class = "post-lists">
           <!-- <h2>My BookMarks</h2> -->
@@ -45,6 +46,36 @@
   </li>
 </ul>
 </div>
+
+<script>
+
+
+//   const posts = document.querySelector('.js-nav-item');
+//   posts.addEventListener('click',('event')=> {
+
+//     const postsLists = event.currentTarget.querySelector('.js-nav-link')
+
+//   //    <div class = "post-lists">
+//   //       <div class ="dash-wrap">
+//   //         <% current_user.posts.each do |post| %>
+//   //           <div class="card-product"style="background-image: url(<%= cl_image_path post.photo,   crop: :fill %>);">
+//   //             <div class ="info">
+//   //             <p><%= post.content %></p>
+//   //             <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
+//   //               <p>Upvotes: <%= post.get_upvotes.size %></p>
+//   //               <%= link_to "Check out post", post_path(post) %>
+//   //             </div>
+//   //           </div>
+//   //         <% end %>
+//   //       </div>
+//   //     </div>
+// zzzzz
+
+//   // });
+
+
+</script>
+
 
 
 
