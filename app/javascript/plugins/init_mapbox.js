@@ -116,6 +116,9 @@ const renderCardEl = (post) => {
 
   cardEl.innerHTML = `
     <img class="js-post-photo" src="${post.post_photo}"/>
+    <img class="js-user-avatar" src="${post.user.photo.url}" />
+    <h2 class="card-small-title">${post.title}
+    <p class="card-small-time">${post.time}</p></h2>
   `;
 
   return cardEl;

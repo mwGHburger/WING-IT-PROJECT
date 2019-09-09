@@ -18,13 +18,28 @@
               <!-- <input type="text" class="js-lat" /> -->
               <!-- <input type="text" class="js-lon" /> -->
 
-              <div class="js-create-post-actions">
-                <%= f.submit "Make Post", class: "btn-make-post js-create-post-button d-none" %>
-                <div class="js-create-post-loading" style="color: white;"><span class="fa fa-spinner fa-spin"></span> Please wait while we get your location...</div>
-                <!-- <div class="js-location-message"></div> -->
-              </div>
-            <% end %>
-        </div>
+
+        <%= simple_form_for @post do |f| %>
+          <%= f.input :title,label_html: {style:"color: white; display: none;", class:"mt-5 mx-0"}, input_html: { style:" margin-top: 8vh; border: 1px solid white; width: 100%;", placeholder:"Add a Title for your post"} %>
+          <%= f.input :content, id:"make-post-content-text",label_html: {style:"color: white; display: none;", class:"mt-5 mx-0"}, input_html: { style:" margin-top: 3vh; border: 1px solid white; width: 100%;", placeholder:"Make a post"} %>
+          <%= f.input :photo, label_html: {class:"custom-file-upload"} %>
+          <%= f.input :photo_cache, as: :hidden %>
+          <%= f.input :latitude, input_html: {class: "js-lat"}, as: :hidden %>
+          <%= f.input :longitude, input_html: {class: "js-lon"}, as: :hidden %>
+          <!-- <input type="text" class="js-lat" /> -->
+          <!-- <input type="text" class="js-lon" /> -->
+
+          <div class="js-create-post-actions">
+            <%= f.submit "Make Post", class: "btn-make-post js-create-post-button d-none" %>
+            <div class="js-create-post-loading"><span class="fa fa-spinner fa-spin"></span> Please wait while we get your location...</div>
+            <!-- <div class="js-location-message"></div> -->
+          </div>
+        <% end %>
+
+        <%= link_to map_path do %>
+          <%= raw '<i class="far fa-times-circle btn-exit"></i>' %>
+        <% end %>
+
       </div>
     </div>
   </div>

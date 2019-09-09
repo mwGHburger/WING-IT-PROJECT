@@ -51,6 +51,7 @@ puts 'Adding Posts'
 
 posts_attributes = [
   {
+    title:    'Cool Location',
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.824636,
     longitude:      144.992511,
@@ -58,13 +59,15 @@ posts_attributes = [
     user_id:        all_users.sample.id
   },
   {
+    title:    'Nice Place',
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.8136,
     longitude:      144.9631,
-    remote_photo_url:    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fres-2.cloudinary.com%2Fsimpleview%2Fimage%2Fupload%2Fc_limit%2Cf_auto%2Ch_1200%2Cq_75%2Cw_1200%2Fv1%2Fclients%2Frichmond%2FDaniel_Lin_02_84dd0c44-e6c9-44c7-8b43-2d5ab1e30061.jpg&f=1",
+    remote_photo_url:    "https://colabcdn.azureedge.net/-/media/Images/Melbourne/Location/1020-680/POSSIBLE-site_locations_1020-680_0008_melbourne.ashx",
     user_id:        all_users.sample.id
   },
   {
+    title:    'Hidden Gem',
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.227636,
     longitude:      164.992211,
@@ -72,6 +75,7 @@ posts_attributes = [
     user_id:        all_users.sample.id
   },
   {
+    title:    'Good Food',
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.9021,
     longitude:      145.0411,
@@ -79,6 +83,7 @@ posts_attributes = [
     user_id:        all_users.sample.id
   },
   {
+    title:    'Swan Street Brilliance',
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.9525,
     longitude:      145.0123,
@@ -86,6 +91,7 @@ posts_attributes = [
     user_id:        all_users.sample.id
   },
   {
+    title:    'Very Cool!',
     content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
     latitude:      -37.8400,
     longitude:     144.9890,
