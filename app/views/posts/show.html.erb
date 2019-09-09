@@ -2,6 +2,7 @@
 
 <div class="container container-post-show">
   <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+  <p><%= @post.title %></p>
   <p class="text"><%= @post.content %></p>
   <p>Posted by: <%= @post.user.username %></p>
   <p>Posted: <strong><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</strong></p>
