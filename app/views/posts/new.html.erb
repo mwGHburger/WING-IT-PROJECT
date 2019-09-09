@@ -1,11 +1,11 @@
+<%= render 'shared/navbar' %>
 <div class="container">
   <div class="row">
     <div class="col-sm-6 offset-sm-3 ">
-      <%= render 'shared/navbar' %>
       <div class="card p-3" style="border-radius: 15px; position: relative; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80'); background-size: cover; margin: auto;">
 
         <%= simple_form_for @post do |f| %>
-          <%= f.input :content, label_html: {style:"color: white; display: none;", class:"mt-5"}, input_html: {style:" margin-top: 10vh; border: 1px solid white; width: 100%;", placeholder:"Make a post"} %>
+          <%= f.input :content, id:"make-post-content-text",label_html: {style:"color: white; display: none;", class:"mt-5 mx-0"}, input_html: { style:" margin-top: 10vh; border: 1px solid white; width: 100%;", placeholder:"Make a post"} %>
           <%= f.input :photo, label_html: {class:"custom-file-upload"} %>
           <%= f.input :photo_cache, as: :hidden %>
           <%= f.input :latitude, input_html: {class: "js-lat"}, as: :hidden %>
