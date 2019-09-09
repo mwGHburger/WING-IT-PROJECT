@@ -1,5 +1,12 @@
 <%= render 'shared/navbar' %>
 
+<div class="container container-post-show">
+  <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+  <p><%= @post.title %></p>
+  <p class="text"><%= @post.content %></p>
+  <p>Posted by: <%= @post.user.username %></p>
+  <p>Posted: <strong><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</strong></p>
+
 <!-- Comments -->
   <div id="comments">
     <% if @post.comments.blank? %>
@@ -16,11 +23,8 @@
 
   <!-- Bookmark button -->
 
-
   <%= link_to "See your dashboard", dashboard_path(current_user) %>
   <%= link_to 'Keep Exploring!', map_path  %>
-
-
 
 <div class="card-large" style="position: relative;">
   <a href class="clickable js-post-link"></a>

@@ -27,6 +27,21 @@
   border-radius: 40px;
 }
 
+// New Post Button
+.new-post-button {
+  position: absolute;
+  right: 16px;
+  bottom: 250px;
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.new-post-button a {
+  font-size: 24px;
+  background-color: green;
+
+}
+
 // Changing upload photo button
 .custom-file-upload {
   border: 1px solid white;
@@ -70,9 +85,11 @@ input[type="file"] {
 .btn-exit::before {
   color: white;
   font-size: 32px;
-  position: absolute;
-  right: 24px;
-  top: 16px;
   opacity: .8;
 }
 
+.btn-div {
+  position: absolute;
+  right: 24px;
+  top: 16px;
+}
