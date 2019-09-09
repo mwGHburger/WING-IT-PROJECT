@@ -9,16 +9,6 @@
                 <%= raw '<i class="far fa-times-circle btn-exit"></i>' %>
               <% end %>
             </div>
-            <%= simple_form_for @post do |f| %>
-              <%= f.input :content, id:"make-post-content-text",label_html: {style:"color: white; display: none;", class:"mt-5 mx-0"}, input_html: { style:" margin-top: 10vh; border: 1px solid white; width: 100%;", placeholder:"Make a post"} %>
-              <%= f.input :photo, label_html: {class:"custom-file-upload"} %>
-              <%= f.input :photo_cache, as: :hidden %>
-              <%= f.input :latitude, input_html: {class: "js-lat"}, as: :hidden %>
-              <%= f.input :longitude, input_html: {class: "js-lon"}, as: :hidden %>
-              <!-- <input type="text" class="js-lat" /> -->
-              <!-- <input type="text" class="js-lon" /> -->
-
-
         <%= simple_form_for @post do |f| %>
           <%= f.input :title,label_html: {style:"color: white; display: none;", class:"mt-5 mx-0"}, input_html: { style:" margin-top: 8vh; border: 1px solid white; width: 100%;", placeholder:"Add a Title for your post"} %>
           <%= f.input :content, id:"make-post-content-text",label_html: {style:"color: white; display: none;", class:"mt-5 mx-0"}, input_html: { style:" margin-top: 3vh; border: 1px solid white; width: 100%;", placeholder:"Make a post"} %>
