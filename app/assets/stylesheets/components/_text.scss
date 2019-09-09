@@ -1,6 +1,6 @@
 .text {
  display: block;
- width: 150px;
+ width: 300px;
  overflow: hidden;
  white-space: nowrap;
  text-overflow: ellipsis;
@@ -12,3 +12,10 @@ h1 {
   color: $white;
 }
 
+.sm-card-text {
+ display: block;
+ width: 150px;
+ overflow: hidden;
+ white-space: nowrap;
+ text-overflow: ellipsis;
+}
