@@ -16,7 +16,7 @@ class PostsController < ApplicationController
       format.html
       @post_markers = @posts.map do |post|
         {
-          time: post.created_at.strftime("Posted on: %m/%d/%Y"),
+          time: "#{helpers.distance_of_time_in_words(Time.current - post.created_at)} ago",
           content: post.content,
           post_photo: post.photo.url,
           id: post.id,

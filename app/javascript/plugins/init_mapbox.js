@@ -7,6 +7,7 @@ const postCardUsernameEl = document.querySelector('.js-username');
 const postCardContentEl = document.querySelector('.js-post-content');
 const postCardAvatarEl = document.querySelector('.js-user-avatar');
 const postCardUrlEl = document.querySelector('.js-post-link');
+const postCardTimeEl = document.querySelector('.js-post-time');
 const currentMarkers = {};
 
 const geolocateControl = new mapboxgl.GeolocateControl({
@@ -63,7 +64,7 @@ const addPostsToMap = (map, posts) => {
         postCardAvatarEl.setAttribute("src", post.user.photo.url)
         postCardUsernameEl.innerHTML = post.user.name
         postCardContentEl.innerHTML = post.content
-
+        postCardTimeEl.innerHTML = post.time
       });
 
       currentMarkers[post.id] = new mapboxgl.Marker({
