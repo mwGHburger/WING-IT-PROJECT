@@ -1,11 +1,19 @@
 .card-small {
-  width: 180px;
-  height: 248px;
+  min-width: 180px;
+  max-width: 180px;
+  display: inline-block;
+  height: 100%;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
   position: relative;
+  margin-right: 10px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .card-small > img {
@@ -89,7 +97,7 @@
   position: relative;
   border-radius: 10px;
   bottom: 108px;
-  background-color: rgba(153, 153, 153, 0.6);
+  background-color: rgba(61, 72, 75, 0.8);
 
 }
 
@@ -99,3 +107,4 @@
   top: -332px;
   width: 32px;
 }
+
