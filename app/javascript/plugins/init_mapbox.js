@@ -16,14 +16,6 @@ const geolocateControl = new mapboxgl.GeolocateControl({
   }
 });
 
-// const currentLatLng = () => {
-//   return navigator.geolocation.getCurrentPosition(success);
-// }
-
-// const success = (position) => {
-//   return [position.coords.latitude, position.coords.longitude];
-// };
-
 // Create Map
 const buildMap = () => {
   mapboxgl.accessToken = mapElement.dataset.mapboxApiKey;
@@ -42,7 +34,7 @@ const buildMap = () => {
 const addPostsToMap = (map, posts) => {
   Object.keys(currentMarkers).forEach(postId => {
     currentMarkers[postId].remove();
-    // When adding posts to map, remove all acurrent marker, not optimal
+    // When adding posts to map, remove all current markers, not optimal
     delete currentMarkers[postId];
   });
 
@@ -51,10 +43,10 @@ const addPostsToMap = (map, posts) => {
   posts.forEach((post) => {
     // stops loading markers on top of each other
     //if (!currentMarkers[post.id]) {
-      const popup = new mapboxgl.Popup().setHTML()//`<img src="${post.photo.url}">`; // Need to revisit this for customising windows
+      const popup = new mapboxgl.Popup().setHTML() //`<img src="${post.photo.url}">`; // Need to revisit this for customising windows
 
-      const teaserCardEl = renderCardEl(post);
-      postCardContainerEl.appendChild(teaserCardEl);
+      const teaserCardEl = renderCardEl(post); //renderCardEl function creates small card based on post
+      postCardContainerEl.appendChild(teaserCardEl); // Add cards to container
 
 
       teaserCardEl.addEventListener('click', () => {
@@ -71,7 +63,7 @@ const addPostsToMap = (map, posts) => {
       markerEl.addEventListener('click', () => {
         postCardContainerEl.scrollLeft = teaserCardEl.offsetLeft;
       });
-
+      // create markers from current post
       currentMarkers[post.id] = new mapboxgl.Marker({
         element:markerEl
       })
@@ -83,9 +75,9 @@ const addPostsToMap = (map, posts) => {
 
 const initMapbox = () => {
   if (mapElement) {
-    const map = buildMap();
+    const map = buildMap(); // #1
     // Add Current Location via GeoLocate Control
-    map.addControl(geolocateControl);
+    map.addControl(geolocateControl); // #2
     // subscribe to event
     map.on('load', (e) => {
       geolocateControl.trigger();
@@ -107,7 +99,7 @@ const initMapbox = () => {
       })
       .then(res => res.json()) // Receive JSON response and converting it into usable format
       .then(postsResponse => {
-        addPostsToMap(map, postsResponse); // Add posts to map
+        addPostsToMap(map, postsResponse); // #3 Add posts to map
         console.log(postsResponse);
       });
     });
