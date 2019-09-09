@@ -1,9 +1,14 @@
-const getModal = (params) => {
-  return $("#general-modal").modal(params);
+const modalInitializers = (event) => {
+  const modal = event.currentTarget;
+
+  initPostLocation(modal);
 }
 
 const initModal = () => {
-  window.generalModal = getModal;
+  $(document).ready(function() {
+    window.generalModal = $("#general-modal").on("shown.bs.modal", modalInitializers);
+  });
+
 };
 
 export { initModal };
