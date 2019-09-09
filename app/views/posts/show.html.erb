@@ -86,6 +86,9 @@
 </div>
 
 
+<%#= render 'posts/card', post: @post %>
+
+
 <div class="card-large" style="position: relative;">
   <a href class="clickable js-post-link"></a>
   <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
@@ -117,4 +120,5 @@
 
 
 <%= render 'posts/card', post: @post %>
+
 
