@@ -1,12 +1,48 @@
+<div class="card-large" style="position: relative;">
+  <a href class="clickable js-post-link"></a>
+  <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+  <div class="card-large-infos d-flex flex-column justify-content-between">
+      <!-- div containing ICONS -->
+      <div class="icon-large-card-container align-self-start">
+        <!-- upvote icon -->
+        <div class="btn-like">
+          <%= link_to like_post_path(@post), class:"like-btn", method: :put, remote: :true do %>
+            <i class="fas fa-thumbs-up"> <span class="like-count" style="color: white; font-family: Roboto; font-weight: normal;"><%= @post.get_upvotes.size %></span></i>
+          <% end %>
+        </div>
+        <!--  -->
+        <!-- upvote -->
+        <div>
+          <i class="far fa-comment"></i>
+        </div>
+        <!--  -->
+        <!-- bookmark button -->
+        <div class="i-bookmark"><%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
+          <%= raw bookmark_text %> <!-- to allow for HTML injections -->
+        <% end %>
+        </div>
+        <!--  -->
+      </div>
+      <!--  -->
+      <div class="container-username-content">
+        <h2 class="js-username"><%= @post.user.username %></h2>
+        <p class="js-post-content mb-1"><%= @post.content %></p>
+      </div>
+      <div class="i-time"><i class="far fa-clock"></i>
+        <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
+      </div>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-large-user avatar-bordered js-user-avatar" />
+  </div>
+</div>
 
-<div class="card-small" style="position: relative;">
+<!-- <div class="card-small" style="position: relative;">
   <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
   <a href class="clickable js-post-link"></a>
   <img class="js-post-photo" src="https://images.unsplash.com/photo-1552624189-4e832ec74b5f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80" />
   <div class="card-small-infos">
     <div>
-      <h2 class="js-title">Title here</h2>
-      <p class="js-post-content mb-1 text">Short description here!</p>
+      <h2 class="js-title"><%= post.title %></h2>
+      <p class="js-post-content mb-1 text">post.content</p>
       <p class="js-post-time"><i class="far fa-clock"> 3 hours ago</i></p>
     </div>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-small-user avatar-bordered js-user-avatar" />
@@ -14,3 +50,4 @@
 </div>
 
 
+ -->
