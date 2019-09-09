@@ -1,11 +1,19 @@
 .card-small {
-  width: 180px;
-  height: 248px;
+  min-width: 180px;
+  max-width: 180px;
+  display: inline-block;
+  height: 100%;
   overflow: hidden;
   background: white;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
   position: relative;
+  margin-right: 10px;
+  transition: transform 0.2s;
+
+  &:hover {
+    transform: scale(1.05);
+  }
 }
 
 .card-small > img {
@@ -14,18 +22,36 @@
   object-fit: cover;
 }
 
-.card-small h2 {
-  font-size: 10px;
-  font-weight: bold;
-  margin: 0;
-  color: $white;
-  opacity: 1;
+.card-small .js-user-avatar {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+  border: white 1px solid;
+  object-fit: cover;
 }
 
-.card-small p {
-  font-size: 8px;
+.card-small-title {
+  font-size: 14px;
+  font-weight: bold;
   margin: 0;
-  color: $white;
+  opacity: 1;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(255,255,255,0.8);
+}
+
+.card-small-time {
+  font-size: 12px;
+  margin: 4px 0 0 0;
+  padding-top: 4px;
+  color: black;
   opacity: 1;
 }
 
@@ -67,29 +93,32 @@
 }
 
 .card-large h2 {
-  font-size: 10px;
+  font-size: 12px;
   font-weight: bold;
   margin: 0;
+  margin-bottom: 4px;
   color: $white;
   opacity: 1;
 }
 
 .card-large p {
-  font-size: 8px;
+  font-size: 12px;
   margin: 0;
+  margin-bottom: 24px;
   color: $white;
   opacity: 1;
 }
 
 .card-large .card-large-infos {
-  padding: 10px;
+  padding: 12px;
   display: flex;
+  max-height: 200px;
   justify-content: space-between;
   align-items: flex-end;
   position: relative;
   border-radius: 10px;
-  bottom: 108px;
-  background-color: rgba(153, 153, 153, 0.6);
+  bottom: 196px;
+  background-color: rgba(61, 72, 75, 0.8);
 
 }
 
@@ -99,3 +128,31 @@
   top: -332px;
   width: 32px;
 }
+
+.icon-large-card-container {
+  width: 100%;
+  display: flex;
+  margin-bottom: 12px;
+
+  i {
+    padding-right: 12px;
+  }
+
+  .i-bookmark {
+    padding-left: 224px;
+  }
+
+}
+
+.i-time {
+  color: #e5e5e5;
+  font-size: 10px;
+  margin-top: 13px;
+
+}
+
+
+.form-create-post {
+  display: flex;
+}
+

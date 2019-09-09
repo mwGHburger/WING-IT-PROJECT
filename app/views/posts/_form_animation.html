@@ -1,0 +1,54 @@
+<!-- Integrate Popmotion -->
+<script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
+<script>
+  // Select HTML elements
+  const containerEl = popmotion.styler(document.querySelector('.animate-container'));
+  const formElements = document.querySelector('.inner');
+
+  // Animate Container - Tween
+  const tweenAnim = popmotion.tween({ // assigning animation to constant allows it to referenced some point in the future
+      from: {
+          scale: .7,
+          opacity: 0,
+          y: 300
+      },
+      to: {
+          scale: 1,
+          opacity: 1,
+          y: 0
+      },
+      duration: 1000
+  });
+
+  // Animate - keyframes
+  const keyframeAnim = popmotion.keyframes({ // assigning animation to constant allows it to referenced some point in the future
+      values: [
+        { y:-50, opacity: 0 },
+        { y:-20, opacity: 1 },
+        { y:-20, opacity: 1 },
+        { y:0, opacity: 0 }
+      ],
+      times: [0, 0.2, 0.8, 1],
+      duration: 3000
+  });
+
+  tweenAnim.start({
+    update: containerEl.set,
+    complete: () => {keyframeAnim.start()} // insert another animation inside keyframeAnim.start()
+  })
+
+  // Animate Container Children - Stagger
+  // creates an array of children of container
+  const stylers = Array
+    .from(formElements.children)
+    .map(popmotion.styler)
+
+  // create animation for each element in the array using fill (spring animation)
+  const animations = Array(stylers.length)
+    .fill(popmotion.spring({ from: 300, to: 0 }))
+
+  console.log(animations)
+  // .start method starts stagger animation, it iterates over animations
+  popmotion.stagger(animations, 100)
+    .start((v) => v.forEach((x,i) => stylers[i].set('y', x)))
+</script>

@@ -16,7 +16,8 @@ class PostsController < ApplicationController
       format.html
       @post_markers = @posts.map do |post|
         {
-          time: post.created_at.strftime("Posted on: %m/%d/%Y"),
+          time: "#{helpers.distance_of_time_in_words(Time.current - post.created_at)} ago",
+          title: post.title,
           content: post.content,
           post_photo: post.photo.url,
           id: post.id,
@@ -64,7 +65,7 @@ class PostsController < ApplicationController
   private
 
   def post_params
-    params.require(:post).permit(:content, :photo, :latitude, :longitude)
+    params.require(:post).permit(:content, :photo, :latitude, :longitude, :title)
   end
 
   def set_post
