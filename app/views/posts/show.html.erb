@@ -41,6 +41,34 @@
 </div>
 
 
+<div class="card-large" style="position: relative;">
+  <a href class="clickable js-post-link"></a>
+  <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+  <div class="card-large-infos">
+    <div>
+      <div class="icon-large-card">
+        <i class="far fa-thumbs-up"></i>
+        <i class="far fa-comment"></i>
+
+        <%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
+          <%= raw bookmark_text %> <!-- to allow for HTML injections -->
+        <% end %>
+        <%= link_to "See your dashboard", dashboard_path(current_user) %>
+        <%= link_to 'Keep Exploring!', map_path  %>
+      </div>
+
+      <h2 class="js-username"><%= @post.user.username %></h2>
+      <p class="js-post-content mb-1"><%= @post.content %></p>
+      <div>
+        <i class=" far fa-clock"><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</i></div>
+    </div>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-large-user avatar-bordered js-user-avatar" />
+  </div>
+</div>
+
+
+
+
 
 
 <%= render 'posts/card', post: @post %>
