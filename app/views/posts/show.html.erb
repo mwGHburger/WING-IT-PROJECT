@@ -1,23 +1,24 @@
 <%= render 'shared/navbar' %>
-<div class="container">
-<%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
-<p class="text"><%= @post.content %></p>
-<p>Posted by: <%= @post.user.username %></p>
-<p>Posted: <strong><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</strong></p>
-<br>
+
+<div class="container container-post-show">
+  <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+  <p class="text"><%= @post.content %></p>
+  <p>Posted by: <%= @post.user.username %></p>
+  <p>Posted: <strong><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</strong></p>
+
 <!-- Comments -->
-<div id="comments">
-  <% if @post.comments.blank? %>
-    Be the first to leave a review!
-  <% else %>
-    <% @post.comments.each do |comment| %>
-      <%= render 'comments/show', comment: comment %>
+  <div id="comments">
+    <% if @post.comments.blank? %>
+      Be the first to leave a review!
+    <% else %>
+      <% @post.comments.each do |comment| %>
+        <%= render 'comments/show', comment: comment %>
+      <% end %>
     <% end %>
-  <% end %>
-</div>
+  </div> <!-- comments -->
 
 <%= render 'comments/form', post: @post, comment: @comment %>
-<br>
+
 <div class="d-flex">
 <!-- upvote icon -->
   <%= link_to like_post_path(@post), class:"like-btn", method: :put, remote: :true do %>
@@ -25,10 +26,12 @@
       <span><p><i class="fas fa-thumbs-up"></i></p></span>
     </div>
   <% end %>
+
   <!-- upvote -->
   <span class="like-count"><%= @post.get_upvotes.size %></span>
   <br>
-  </div>
+</div>
+
   <!-- Bookmark button -->
 
   <%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
@@ -36,9 +39,86 @@
   <% end %>
   <%= link_to "See your dashboard", dashboard_path(current_user) %>
   <%= link_to 'Keep Exploring!', map_path  %>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-offset-3">
+
+      <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+      <p class="text"><%= @post.content %></p>
+      <p>Posted by: <%= @post.user.username %></p>
+      <p>Posted: <strong><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</strong></p>
+      <br>
+      <!-- Comments -->
+      <div id="comments">
+        <% if @post.comments.blank? %>
+          Be the first to leave a review!
+        <% else %>
+          <% @post.comments.each do |comment| %>
+            <%= render 'comments/show', comment: comment %>
+          <% end %>
+        <% end %>
+      </div>
+
+      <%= render 'comments/form', post: @post, comment: @comment %>
+      <br>
+      <div class="d-flex">
+      <!-- upvote icon -->
+      <%= link_to like_post_path(@post), class:"like-btn", method: :put, remote: :true do %>
+        <div>
+          <span><p><i class="fas fa-thumbs-up"></i></p></span>
+        </div>
+      <% end %>
+      <!-- upvote -->
+      <span class="like-count"><%= @post.get_upvotes.size %></span>
+      <br>
+      </div>
+      <!-- Bookmark button -->
+
+      <%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
+        <%= raw bookmark_text %> <!-- to allow for HTML injections -->
+      <% end %>
+      <%= link_to "See your dashboard", dashboard_path(current_user) %>
+      <%= link_to 'Keep Exploring!', map_path  %>
+
+    </div>
+  </div>
 </div>
+
 
 <%#= render 'posts/card', post: @post %>
 
+
+<div class="card-large" style="position: relative;">
+  <a href class="clickable js-post-link"></a>
+  <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
+  <div class="card-large-infos">
+    <div>
+      <div class="icon-large-card">
+        <i class="far fa-thumbs-up"></i>
+        <i class="far fa-comment"></i>
+
+        <%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
+          <%= raw bookmark_text %> <!-- to allow for HTML injections -->
+        <% end %>
+        <%= link_to "See your dashboard", dashboard_path(current_user) %>
+        <%= link_to 'Keep Exploring!', map_path  %>
+      </div>
+
+      <h2 class="js-username"><%= @post.user.username %></h2>
+      <p class="js-post-content mb-1"><%= @post.content %></p>
+      <div>
+        <i class=" far fa-clock"><%= distance_of_time_in_words(Time.current - @post.created_at) %> ago</i></div>
+    </div>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-large-user avatar-bordered js-user-avatar" />
+  </div>
+</div>
+
+
+
+
+
+
+<%= render 'posts/card', post: @post %>
 
 

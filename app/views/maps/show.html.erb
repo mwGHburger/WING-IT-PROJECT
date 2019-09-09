@@ -10,7 +10,7 @@
     height: 100vh;"
     data-mapbox-api-key="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
-  <div class="card-container"> <%= render 'posts/card', post_markers: @post_markers %>
+  <div class="card-container js-post-container">
     <%= link_to "+", new_post_path, class: 'btn btn-primary' %>
   </div>
 </div>
