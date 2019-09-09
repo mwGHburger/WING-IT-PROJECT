@@ -2,7 +2,7 @@
 <script src="https://unpkg.com/popmotion/dist/popmotion.global.min.js"></script>
 <script>
   // Select HTML elements
-  const containerEl = popmotion.styler(document.querySelector('.post-container'));
+  const containerEl = popmotion.styler(document.querySelector('.animate-container'));
   const formElements = document.querySelector('.inner');
 
   // Animate Container - Tween
@@ -45,7 +45,7 @@
 
   // create animation for each element in the array using fill (spring animation)
   const animations = Array(stylers.length)
-    .fill(popmotion.spring({ from: 200, to: 0 }))
+    .fill(popmotion.spring({ from: 300, to: 0 }))
 
   console.log(animations)
   // .start method starts stagger animation, it iterates over animations
