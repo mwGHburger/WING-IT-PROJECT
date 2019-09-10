@@ -1,44 +1,58 @@
 <div class="card-large" style="position: relative;">
   <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
   <div class="card-large-infos d-flex flex-column justify-content-between">
-    <div class="d-flex flex-wrap">
+    <div class="d-flex flex-wrap justify-content-center">
       <!-- div containing ICONS -->
       <div class="icon-large-card-container align-self-start">
+
         <!-- upvote icon -->
         <div class="btn-like">
           <%= link_to like_post_path(@post), class:"like-btn", method: :put, remote: :true do %>
             <i class="fas fa-thumbs-up"> <span class="like-count" style="color: white; font-family: Roboto; font-weight: normal;"><%= @post.get_upvotes.size %></span></i>
           <% end %>
         </div>
-        <!-- upvote -->
-        <div>
-          <%= link_to post_comments_path(@post), remote: true do %>
-            <i class="far fa-comment ml-2"></i>
+        <div class="d-flex flex-wrap">
+          <!-- comment icon -->
+          <div class="comment-btn">
+            <%= link_to post_comments_path(@post), remote: true do %>
+              <i class="far fa-comment"></i>
+            <% end %>
+          </div>
+
+          <!-- info button -->
+          <div>
+            <%= link_to post_path(@post), remote: true do %>
+              <i class="fa fa-info ml-2"></i>
+            <% end %>
+          </div>
+
+          <!-- bookmark button -->
+          <div class="i-bookmark"><%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
+            <%= raw bookmark_text %> <!-- to allow for HTML injections -->
           <% end %>
+          </div>
         </div>
-        <div>
-          <%= link_to post_path(@post), remote: true do %>
-            <i class="fa fa-info ml-2"></i>
-          <% end %>
-        </div>
-        <!-- bookmark button -->
-        <div class="i-bookmark"><%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
-          <%= raw bookmark_text %> <!-- to allow for HTML injections -->
-        <% end %>
-        </div>
+
       </div>
+
       <!-- username and content -->
+<<<<<<< HEAD
       <div class="js-post-card-content">
-        <h2 class="js-username"><%= @post.user.username %></h2>
-        <p class="js-post-content mb-1"><%= @post.content %></p>
+        <!-- username -->
+        <h2 class="js-username username-lg-card">
+          <i class="far fa-user-circle"></i> <%= @post.user.username %>
+        </h2>
+        <!-- content -->
+        <p class="js-post-content mb-1 post-content"><%= @post.content %></p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero volutpat turpis condimentum molestie. Nunc malesuada et ante ac ultrices. Mauris euismod turpis ut cursus condimentum. Fusce sit amet sapien leo. Aliquam condimentum, ligula ut elementum consequat, nulla erat vulputate risus, ut iaculis nulla nunc non ligula. Donec faucibus consectetur felis, vel vulputate mi molestie ut. Sed nec blandit libero, sed sagittis felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vel tortor blandit, lobortis augue sed, fringilla metus. Donec massa risus, suscipit vel velit ac, ultrices egestas est. Morbi non elit felis. Maecenas dignissim magna nibh, et fringilla dui sagittis sed. Sed hendrerit enim sed libero dictum, eget viverra ante finibus.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero volutpat turpis condimentum molestie. Nunc malesuada et ante ac ultrices. Mauris euismod turpis ut cursus condimentum. Fusce sit amet sapien leo. Aliquam condimentum, ligula ut elementum consequat, nulla erat vulputate risus, ut iaculis nulla nunc non ligula. Donec faucibus consectetur felis, vel vulputate mi molestie ut. Sed nec blandit libero, sed sagittis felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vel tortor blandit, lobortis augue sed, fringilla metus. Donec massa risus, suscipit vel velit ac, ultrices egestas est. Morbi non elit felis. Maecenas dignissim magna nibh, et fringilla dui sagittis sed. Sed hendrerit enim sed libero dictum, eget viverra ante finibus.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero volutpat turpis condimentum molestie. Nunc malesuada et ante ac ultrices. Mauris euismod turpis ut cursus condimentum. Fusce sit amet sapien leo. Aliquam condimentum, ligula ut elementum consequat, nulla erat vulputate risus, ut iaculis nulla nunc non ligula. Donec faucibus consectetur felis, vel vulputate mi molestie ut. Sed nec blandit libero, sed sagittis felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vel tortor blandit, lobortis augue sed, fringilla metus. Donec massa risus, suscipit vel velit ac, ultrices egestas est. Morbi non elit felis. Maecenas dignissim magna nibh, et fringilla dui sagittis sed. Sed hendrerit enim sed libero dictum, eget viverra ante finibus.</p>
+
       </div>
     </div>
       <!-- Time -->
-      <div class="i-time mb-2"><i class="far fa-clock"></i>
-        <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
+      <div class="i-time">
+        <i class="far fa-clock"></i> <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
       </div>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-large-user avatar-bordered js-user-avatar" />
   </div>
