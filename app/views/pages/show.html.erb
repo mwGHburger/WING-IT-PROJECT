@@ -3,11 +3,21 @@
     <div class = "dash-avatar mb-5"><%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill %>
           <h1><%= current_user.username.capitalize %></h1>
     </div>
-      <ul class="nav nav-tabs mr-6" id="myTab" role="tablist">
-        <li class="js-nav-item">
-        <a class="js-nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">My posts
 
-    <div class = "post-lists">
+  <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"
+      aria-selected="true">Posts</a>
+    </li>
+
+    <li class="nav-item">
+      <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md"
+      aria-selected="false">Bookmarks</a>
+    </li>
+  </ul>
+    <div class="tab-content card pt-5" id="myTabContentMD">
+      <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
+      <div class = "post-lists">
         <div class ="dash-wrap">
           <% current_user.posts.each do |post| %>
              <div class="card-product"style="background-image: url(<%= cl_image_path post.photo,   crop: :fill %>);">
@@ -15,18 +25,15 @@
              <p><%= post.content %></p>
              <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
                <p>Upvotes: <%= post.get_upvotes.size %></p>
-               <%= link_to "Check out post", post_path(post) %>           </div>
+               <%= link_to "Check out post", post_path(post) %>
+             </div>
             </div>
            <% end %>
          </div>
      </div>
-
-
-      </a>
-      </li>
-        <li class="js-nav-item">
-      <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">Bookmarks
-      <div class = "post-lists">
+  </div>
+  <div class="tab-pane fade" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
+    <div class = "post-lists">
           <!-- <h2>My BookMarks</h2> -->
           <div class = "dash-wrap">
             <% current_user.bookmarks.each do |bookmark| %>
@@ -42,43 +49,10 @@
               <% end %>
             </div>
           </div>
-        </a>
-  </li>
-</ul>
+      </div>
+    </div>
+  </div>
 </div>
-
-<script>
-
-
-//   const posts = document.querySelector('.js-nav-item');
-//   posts.addEventListener('click',('event')=> {
-
-//     const postsLists = event.currentTarget.querySelector('.js-nav-link')
-
-//   //    <div class = "post-lists">
-//   //       <div class ="dash-wrap">
-//   //         <% current_user.posts.each do |post| %>
-//   //           <div class="card-product"style="background-image: url(<%= cl_image_path post.photo,   crop: :fill %>);">
-//   //             <div class ="info">
-//   //             <p><%= post.content %></p>
-//   //             <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
-//   //               <p>Upvotes: <%= post.get_upvotes.size %></p>
-//   //               <%= link_to "Check out post", post_path(post) %>
-//   //             </div>
-//   //           </div>
-//   //         <% end %>
-//   //       </div>
-//   //     </div>
-// zzzzz
-
-//   // });
-
-
-</script>
-
-
-
-
 
 
 
