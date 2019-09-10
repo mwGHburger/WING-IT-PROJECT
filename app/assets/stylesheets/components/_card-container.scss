@@ -10,6 +10,14 @@
   text-align: center;
   white-space: nowrap;
   scroll-behavior: smooth; /* @todo make this work on iphone */
+  transition: transform 0.3s, opacity 0.3s;
+  opacity: 1;
+  transform: translateY(0);
+
+  body.is--post-mode & {
+    transform: translateY(30%);
+    opacity: 0;
+  }
 }
 
 .card-container a {

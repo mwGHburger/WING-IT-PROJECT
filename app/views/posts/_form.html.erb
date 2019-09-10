@@ -1,18 +1,21 @@
-<div class="post-form-card p-3" style="border-radius: 15px; position: relative; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80'); background-size: cover; margin: auto;">
-  <h3 style="color: white; font-weight: 100;">Create New Post:</h3>
+<!-- <div class="p-3 post-form-card js-create-post-form" style="border-radius: 15px; position: relative; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80'); background-size: cover; margin: auto;"> -->
+<div class="js-create-post-form create-post-form">
   <%= simple_form_for post do |f| %>
-    <%= f.input :title, label_html: {style:"display: none;"}, input_html: {placeholder:"Title", class: "mt-5", style:"font-weight: 100; background: transparent; color: white;"} %>
-    <%= f.input :content, id:"make-post-content-text",label_html: {style:"color: white; display: none; font-weight: 100;", class:"mt-5 mx-0"}, input_html: { style:" margin: 2vh auto; border: 1px solid white; width: 100%; font-weight: 100; background: transparent; color: white;", placeholder:"Make a post"} %>
-    <%= f.input :photo, label_html: {class:"custom-file-upload", style:"font-weight: 100;"} %>
-    <input type="file" accept="image/*" id="capture" capture="camera">
-    <%= f.input :photo_cache, as: :hidden %>
-    <%= f.input :latitude, input_html: {class: "js-lat"}, as: :hidden %>
-    <%= f.input :longitude, input_html: {class: "js-lon"}, as: :hidden %>
-    <!-- <input type="text" class="js-lat" /> -->
-    <!-- <input type="text" class="js-lon" /> -->
+    <%= f.input :latitude, input_html: {class: "js-create-post-lat"}, wrapper_html: { class: 'd-none'}, as: :hidden %>
+    <%= f.input :longitude, input_html: {class: "js-create-post-lon"}, wrapper_html: { class: 'd-none'}, as: :hidden %>
 
-    <div class="js-create-post-actions">
-      <%= f.submit "Make Post", class: "btn-make-post js-create-post-button d-none", style:"font-weight: 100;" %>
+    <div class="create-post-form-step-image">
+      <img class="js-post-form-upload-preview create-post-form-preview d-none" />
+      <%= f.input :photo, input_html: { class: "js-post-form-image-field" }, wrapper_html: { class: 'js-post-form-image-wrapper'} %>
+      <input type="file" accept="image/*" id="capture" capture="camera">
+      <%= f.input :photo_cache, as: :hidden %>
+    </div>
+    <div class="create-post-form-step-content">
+      <%= f.input :content, id:"make-post-content-text", label: false, placeholder: 'Write somethin\'...' %>
+      <%= f.submit "Make Post", class: "btn-make-post js-create-post-button" %>
+    </div>
+
+    <div class="js-create-post-actions d-none">
       <div class="js-create-post-loading" style="color: white;"><span class="fa fa-spinner fa-spin"></span> Getting your location...</div>
       <!-- <div class="js-location-message"></div> -->
     </div>

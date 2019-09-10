@@ -69,19 +69,19 @@ input[type="file"] {
 
 // Make post button
 .btn-make-post {
-  border: 1px solid white;
+  // border: 1px solid white;
   background: transparent;
-  border-radius: 25px;
-  padding: 8px 16px;
-  color: white;
-  margin-top: 30px;
-  width: 135px;
+  // border-radius: 25px;
+  // padding: 8px 16px;
+  // color: white;
+  // margin-top: 30px;
+  // width: 135px;
   text-align: center;
-  &:hover {
-    background: rgba(255,255,255,1);
-    color: black;
-    transition: 0.2s;
-  }
+  // &:hover {
+  //   background: rgba(255,255,255,1);
+  //   color: black;
+  //   transition: 0.2s;
+  // }
 }
 
 .btn-exit::before {
