@@ -5,11 +5,42 @@
 }
 .create-post-form--has-image {
   .create-post-form-step-content {
-    display: block;
+    display: flex;
+    height: 48px;
+    border: 1px solid #e5e5e5;
+    margin: 8px;
+    border-radius: 4px;
+
+    .post_content textarea {
+      color: red;
+    }
   }
+
+  .btn-make-post {
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    background-color: #112e49;
+    border-radius: 4px;
+  }
+
 }
 
 .create-post-form-preview {
   width: 100%;
   height: auto;
+}
+
+
+.mapboxgl-popup-content {
+  height: 100%;
+
+  label {
+    font-size: 0;
+  }
+
+  label:before {
+    content: "UPLOAD PHOTO";
+    font-size: 14px;
+  }
 }
