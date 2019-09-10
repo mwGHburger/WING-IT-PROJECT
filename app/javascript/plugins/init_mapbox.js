@@ -5,13 +5,78 @@ const mapElement = document.getElementById('map');
 const postCardContainerEl = document.querySelector('.js-post-container');
 const currentMarkers = {};
 
+let map;
+
+let mapMode = 'explore'; // Either explore or create.
+
+window.addCreateFormToMap = (createFormHtml) => {
+  const userLat = localStorage.getItem("lat");
+  const userLon = localStorage.getItem("lon");
+
+  const userCoords = [ userLon, userLat ];
+
+  const popup = new mapboxgl.Popup({
+    anchor: 'bottom',
+    className: 'create-post-popup'
+  })
+    .setHTML(createFormHtml)
+    .setLngLat(userCoords)
+    .addTo(map);
+
+  // const marker = new mapboxgl.Marker()
+  //   .setLngLat(userCoords)
+  //   .addTo(map);
+
+  map.flyTo({ center: userCoords, zoom: 18 });
+
+  mapMode = 'create';
+
+  const postFormEl = document.querySelector('.js-create-post-form');
+
+  document.querySelector('.js-create-post-lon').value = userLon;
+  document.querySelector('.js-create-post-lat').value = userLat;
+
+  syncMapMode();
+
+  // File preview input.
+  const postImageInput = document.querySelector('.js-post-form-image-field');
+  const postImageWrapperEl = document.querySelector('.js-post-form-image-wrapper');
+  postImageInput.addEventListener('change', () => {
+    var oFReader = new FileReader();
+    oFReader.readAsDataURL(postImageInput.files[0]);
+
+    oFReader.onload = function (oFREvent) {
+      postFormEl.classList.add('create-post-form--has-image');
+      const uploadPreviewEl = document.querySelector(".js-post-form-upload-preview");
+      uploadPreviewEl.classList.remove('d-none');
+      postImageWrapperEl.classList.add('d-none');
+      uploadPreviewEl.src = oFREvent.target.result;
+    };
+  });
+
+  popup.on('close', () => {
+    mapMode = 'explore';
+    syncMapMode();
+    // marker.remove();
+  });
+}
+
+const syncMapMode = () => {
+  Object.values(currentMarkers).forEach(marker => {
+    const markerEl = marker.getElement();
+    markerEl.classList.toggle('map-marker--disabled', mapMode === 'create');
+  });
+
+  document.body.classList.toggle('is--post-mode', mapMode === 'create');
+}
+
 const geolocateControl = new mapboxgl.GeolocateControl({
   positionOptions: {
     enableHighAccuracy: true
   },
   trackUserLocation: true,
   fitBoundsOptions: {
-    maxZoom: 15,  // Zoom adjustment
+    maxZoom: 16,  // Zoom adjustment
     linear: false
   }
 });
@@ -22,7 +87,7 @@ const buildMap = () => {
   return new mapboxgl.Map({
     container: 'map',
     style: 'mapbox://styles/mapbox/light-v10',
-    duration: 0,
+    duration: 0.5,
     pitch: 60,
     center: [localStorage.getItem("lon"), localStorage.getItem("lat")],
     zoom: 15
@@ -69,13 +134,15 @@ const addPostsToMap = (map, posts) => {
       })
         .setLngLat([ post.longitude, post.latitude ])
         .addTo(map);
+
+      syncMapMode();
     //}
   });
 };
 
 const initMapbox = () => {
   if (mapElement) {
-    const map = buildMap(); // #1
+    map = buildMap(); // #1
     // Add Current Location via GeoLocate Control
     map.addControl(geolocateControl); // #2
     // subscribe to event
