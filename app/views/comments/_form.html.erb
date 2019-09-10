@@ -1,7 +1,15 @@
+<div class="d-flex flex-column">
 
-<div class="form-create-post">
-  <%= simple_form_for([ post, comment ], remote: true) do |form| %>
-    <%= form.input :content, input_html: { class: 'comment-content' } %>
-    <%= form.button :submit, class: 'comment-btn', value: "Post" %>
-  <% end %>
+  <div class="form-create-post">
+    <%= simple_form_for([ post, comment ], remote: true) do |form| %>
+      <!-- flex box input field and button -->
+      <div class="d-flex flex-wrap form-create-post-inner">
+        <%= form.input :content, label: false, input_html: { class: 'input-comment-content', style:"background: transparent; color: white; font-weight: 200; border: 1px solid white; margin-right: 0;"}, placeholder: "Make a comment..." %>
+        <%= form.button :submit, class: 'post-comment-btn', style:"color: white; font-weight: 200; border: 1px solid white; font-size: 1rem; margin: 0;", value: "Continue" %>
+      </div>
+    <% end %>
+  </div>
+
+  <p class="my-2" style="font-size: 20px;font-weight: 300;"> Comments Section: </p>
+
 </div>
