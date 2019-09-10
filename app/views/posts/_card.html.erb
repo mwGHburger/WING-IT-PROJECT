@@ -23,13 +23,13 @@
       </div>
       <!-- username and content -->
       <div class="container-username-content">
-        <h2 class="js-username"><%= @post.user.username %></h2>
+        <h2 class="js-username username-lg-card"><%= @post.user.username %></h2>
         <p class="js-post-content mb-1"><%= @post.content %></p>
       </div>
     </div>
       <!-- Time -->
-      <div class="i-time mb-2"><i class="far fa-clock"></i>
-        <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
+      <div class="i-time mb-2">
+        <i class="far fa-clock"></i> <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
       </div>
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-large-user avatar-bordered js-user-avatar" />
   </div>
