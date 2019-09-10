@@ -4,6 +4,7 @@
     <%= f.input :title, label_html: {style:"display: none;"}, input_html: {placeholder:"Title", class: "mt-5", style:"font-weight: 100; background: transparent; color: white;"} %>
     <%= f.input :content, id:"make-post-content-text",label_html: {style:"color: white; display: none; font-weight: 100;", class:"mt-5 mx-0"}, input_html: { style:" margin: 2vh auto; border: 1px solid white; width: 100%; font-weight: 100; background: transparent; color: white;", placeholder:"Make a post"} %>
     <%= f.input :photo, label_html: {class:"custom-file-upload", style:"font-weight: 100;"} %>
+    <input type="file" accept="image/*" id="capture" capture="camera">
     <%= f.input :photo_cache, as: :hidden %>
     <%= f.input :latitude, input_html: {class: "js-lat"}, as: :hidden %>
     <%= f.input :longitude, input_html: {class: "js-lon"}, as: :hidden %>
