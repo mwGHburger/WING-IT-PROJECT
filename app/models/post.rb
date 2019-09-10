@@ -10,6 +10,6 @@ class Post < ApplicationRecord
   validates :content, presence: true
 
   def photo
-    super.present? ? super : DEFAULT_PHOTO_URL
+    super.present? || self.new_record? ? super : DEFAULT_PHOTO_URL
   end
 end
