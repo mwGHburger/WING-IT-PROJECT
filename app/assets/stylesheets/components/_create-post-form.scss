@@ -12,16 +12,25 @@
     border-radius: 4px;
 
     .post_content textarea {
-      color: red;
+      color: #e5e5e5;
+      margin: 4px;
+      width: 100%;
+      padding: 0;
     }
   }
 
   .btn-make-post {
     border: none;
-    color: #fff;
-    font-weight: bold;
-    background-color: #112e49;
+    color: #a1a3a6;
+    font-weight: regular;
+    background: transparent;
     border-radius: 4px;
+    padding: 4px 16px;
+    font-size: 16px;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
   }
 
 }
