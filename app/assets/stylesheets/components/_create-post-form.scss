@@ -5,11 +5,51 @@
 }
 .create-post-form--has-image {
   .create-post-form-step-content {
-    display: block;
+    display: flex;
+    height: 48px;
+    border: 1px solid #e5e5e5;
+    margin: 8px;
+    border-radius: 4px;
+
+    .post_content textarea {
+      color: #e5e5e5;
+      margin: 4px;
+      width: 100%;
+      padding: 0;
+    }
   }
+
+  .btn-make-post {
+    border: none;
+    color: #a1a3a6;
+    font-weight: regular;
+    background: transparent;
+    border-radius: 4px;
+    padding: 4px 16px;
+    font-size: 16px;
+
+    &:hover {
+      box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    }
+  }
+
 }
 
 .create-post-form-preview {
   width: 100%;
   height: auto;
+}
+
+
+.mapboxgl-popup-content {
+  height: 100%;
+
+  label {
+    font-size: 0;
+  }
+
+  label:before {
+    content: "UPLOAD PHOTO";
+    font-size: 14px;
+  }
 }

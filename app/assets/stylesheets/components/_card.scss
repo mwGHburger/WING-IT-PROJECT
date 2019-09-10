@@ -4,7 +4,7 @@
   display: inline-block;
   height: 100%;
   overflow: hidden;
-  background: white;
+  background: transparent;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 10px;
   position: relative;
@@ -24,7 +24,7 @@
 
 .card-small .js-user-avatar {
   position: absolute;
-  top: 4px;
+  top: 5px;
   left: 4px;
   width: 40px;
   height: 40px;
@@ -35,6 +35,7 @@
 }
 
 .card-small-title {
+  text-align: left;
   font-size: 14px;
   font-weight: bold;
   margin: 0;
@@ -44,14 +45,15 @@
   left: 0;
   width: 100%;
   padding: 10px;
-  background: rgba(255,255,255,0.8);
+  background: transparent;
+  color: #fff;
 }
 
 .card-small-time {
   font-size: 12px;
   margin: 4px 0 0 0;
   padding-top: 4px;
-  color: black;
+  color: #fff;
   opacity: 1;
 }
 
