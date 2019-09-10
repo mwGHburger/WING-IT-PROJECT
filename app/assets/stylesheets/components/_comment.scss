@@ -1,15 +1,25 @@
-.comment-content {
-  border-radius: 30px;
-  height: 30px;
-  width: 230px;
+.comment-box {
+  border: 1px solid rgba(200,200,200,.8);
+  padding: 8px 16px;
+  margin: 8px 0px;
 }
 
-.form-create-post .comment-content {
-  height: 35px;
-  width: 250px;
-  position: relative;
+.comment-info {
+  border-radius: 30px;
+  height: 30px;
+  width: 80%;
+}
+
+.form-create-post {
+  margin-top: 24px;
 }
 
 #comments {
   color: $white;
+}
+
+.post-comment-btn {
+  height: 40px;
+  border-radius: 25px;
+  padding: 8px 16px;
 }

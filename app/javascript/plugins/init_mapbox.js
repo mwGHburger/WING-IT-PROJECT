@@ -76,7 +76,7 @@ const geolocateControl = new mapboxgl.GeolocateControl({
   },
   trackUserLocation: true,
   fitBoundsOptions: {
-    maxZoom: 11,  // Zoom adjustment
+    maxZoom: 15,  // Zoom adjustment
     linear: false
   }
 });
@@ -90,7 +90,7 @@ const buildMap = () => {
     duration: 0.5,
     pitch: 60,
     center: [localStorage.getItem("lon"), localStorage.getItem("lat")],
-    zoom: 10
+    zoom: 14
     //bearing: -60,
   });
 };

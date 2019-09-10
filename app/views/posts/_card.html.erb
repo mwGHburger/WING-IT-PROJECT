@@ -38,21 +38,21 @@
       <!-- username and content -->
       <div class="js-post-card-content container-username-content">
 
-        <!-- username -->
-        <h2 class="js-username username-lg-card">
-          <i class="far fa-user-circle"></i>
-          <%= @post.user.username %>
-        </h2>
-        <!-- Time (optional) -->
-
+        <div class="d-flex justify-content-between align-items-center my-3">
+          <!-- username -->
+          <h2 class="js-username username-lg-card">
+            <i class="far fa-user-circle"></i>
+            <%= @post.user.username %>
+          </h2>
+          <!-- Time -->
+          <div class="i-time">
+            <i class="far fa-clock"></i>
+            <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
+          </div>
+        </div>
         <!-- content -->
         <p class="js-post-content mb-1 post-content"><%= @post.content %></p>
       </div>
 
-    <!-- Time -->
-    <div class="i-time">
-      <i class="far fa-clock"></i>
-      <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
-    </div>
   </div>
 </div>
