@@ -2,15 +2,14 @@
   background-color:#6c797d;
   color:black;
   height:100vh;
+}
 
-  .dash-avatar{
-    text-align:center;
-     background-color:#6c797d;
-     padding:96px;
-    font-size:32px;
-    height:100vh
-
-
+.dash-avatar{
+  text-align:center;
+  background-color:#6c797d;
+  padding:96px;
+  font-size:32px;
+   height:100vh
   }
   .h1{
     font-size: 24px;
@@ -23,7 +22,7 @@
  color:black;
 
 }
-}
+
 
 // .dash-card {
 // color:white;
@@ -31,21 +30,21 @@
 // justify-content:space-between;
 // padding:16px;
 // }
-.post-lists{
-  display: block;
-  grid-gap:4px;
-  // background-color: #f8f9fa;
-  color:black;
-  width:90vh;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
-  height:100vh;
-  border-radius:10px;
+// .post-lists{
+//   display: block;
+//   grid-gap:4px;
+//   // background-color: #f8f9fa;
+//   color:black;
+//   width:90vh;
+//   box-shadow: 0 0 15px rgba(0,0,0,0.2);
+//   height:100vh;
+//   border-radius:10px;
 
 
-}
+// }
 
 .nav-tabs{
- background-color: #6c797d;
+  background-color: #6c797d;
  a{
   text-align:center;
  }
@@ -100,10 +99,11 @@
 }
 .tab-content{
  // display:none;
+ background-color: #f8f9fa;
  .post-lists{
   display: block;
   grid-gap:4px;
-  // background-color: #f8f9fa;
+  background-color: #f8f9fa;
   color:black;
   width:90vh;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
@@ -123,5 +123,6 @@ a.active{
   display:block;
 }
 }
+
 
 
