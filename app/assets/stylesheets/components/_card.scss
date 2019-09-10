@@ -87,6 +87,30 @@
   border-radius: 10px;
   position: relative;
   margin: auto;
+
+  h2 {
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+    margin-bottom: 8px;
+    color: $white;
+    opacity: 1;
+  }
+
+  p {
+    font-size: 12px;
+    margin: auto ;
+    color: $white;
+    opacity: 1;
+    text-overflow: ellipsis;
+    overflow: auto;
+    overflow-wrap: break-word;
+    width: 300px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 8px 0px;
+    font-weight: 200;
+  }
 }
 
 .card-large > img {
@@ -95,63 +119,78 @@
   object-fit: cover;
 }
 
-.card-large h2 {
-  font-size: 12px;
-  font-weight: bold;
-  margin: 0;
-  margin-bottom: 4px;
-  color: $white;
-  opacity: 1;
-}
-
-.card-large p {
-  font-size: 12px;
-  margin: 0;
-  margin-bottom: 24px;
-  color: $white;
-  opacity: 1;
-}
-
 .card-large-infos {
-  padding: 16px 12px;
-  max-height: 200px;
-  height: 225px;
+  padding: 16px 8px;
+  max-height: 250px;
+  height: 250px;
   position: relative;
   border-radius: 10px;
-  bottom: 196px;
-  background-image: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,0.9), rgba(0,0,0,0.7),rgba(0,0,0,0.6),rgba(0,0,0,.4),rgba(0,0,0,.2),rgba(0,0,0,0));
+  bottom: 230px;
+  background-image: linear-gradient(0deg, rgba(0,0,0,1), rgba(0,0,0,.8),rgba(0,0,0,0));
+
+  .card-large-user {
+    position: absolute;
+    left: 8px;
+    top: -332px;
+    width: 32px;
+  }
 }
 
-.card-large-infos .card-large-user {
-  position: absolute;
-  left: 8px;
-  top: -332px;
-  width: 32px;
-}
 
 .icon-large-card-container {
-  width: 100%;
+  width: 300px;
   display: flex;
-  margin-bottom: 16px;
-
-  .i-bookmark {
-    padding-left: 224px;
-  }
-
+  margin-bottom: 8px;
+  justify-content: space-between;
+  position: relative;
 }
 
 .i-time {
   color: #e5e5e5;
   font-size: 10px;
-  margin-top: 13px;
-
+  margin-top: 4px;
+  position: absolute;
+  bottom: 34px;
+  left: 16px;
 }
-
 
 .form-create-post {
   display: flex;
 }
 
+// like button
 .btn-like {
-  padding-right: 20px;
+  font-size: 20px;
+  transition: .1s;
+  &:active {
+    transform: scale(1.2);
+  }
+}
+// bookmark button
+.i-bookmark {
+  font-size: 20px;
+  transition: .1s;
+  &:active {
+    transform: scale(1.2);
+  }
+}
+// comment button
+.comment-btn {
+  margin-right: 16px;
+  font-size: 20px;
+  transition: .1s;
+  &:active {
+    transform: scale(1.2);
+  }
+}
+
+.container-username-content {
+  h2 {
+    font-weight: 100;
+    letter-spacing: 1px;
+  }
+}
+
+.fa-user {
+  font-size: 14px;
 }
