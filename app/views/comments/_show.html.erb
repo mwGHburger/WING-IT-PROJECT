@@ -1,4 +1,6 @@
-<div class="border border-dark rounded p-2 my-2" style="width:300px">
+<div>
+<div class="comment-content" style="color: white; font-family: Roboto; font-weight: normal;">
 <p><%= comment.content %></p>
  <p><strong> <%= comment.user.username %> <%= distance_of_time_in_words(Time.current - comment.created_at) %> ago</strong></p>
+</div>
 </div>

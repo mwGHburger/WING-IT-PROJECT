@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :posts, only: [:index, :new, :create, :show] do
     # This route will coming later
-    resources :comments, only: :create
+    resources :comments, only: [:index, :create]
     # upvote feature
     member do
       put "like" => "posts#vote"

@@ -1,5 +1,4 @@
 <div class="card-large" style="position: relative;">
-  <a href class="clickable js-post-link"></a>
   <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
   <div class="card-large-infos d-flex flex-column justify-content-between">
     <div class="d-flex flex-wrap">
@@ -13,7 +12,14 @@
         </div>
         <!-- upvote -->
         <div>
-          <i class="far fa-comment"></i>
+          <%= link_to post_comments_path(@post), remote: true do %>
+            <i class="far fa-comment ml-2"></i>
+          <% end %>
+        </div>
+        <div>
+          <%= link_to post_path(@post), remote: true do %>
+            <i class="fa fa-info ml-2"></i>
+          <% end %>
         </div>
         <!-- bookmark button -->
         <div class="i-bookmark"><%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
@@ -22,9 +28,12 @@
         </div>
       </div>
       <!-- username and content -->
-      <div class="container-username-content">
+      <div class="js-post-card-content">
         <h2 class="js-username"><%= @post.user.username %></h2>
         <p class="js-post-content mb-1"><%= @post.content %></p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero volutpat turpis condimentum molestie. Nunc malesuada et ante ac ultrices. Mauris euismod turpis ut cursus condimentum. Fusce sit amet sapien leo. Aliquam condimentum, ligula ut elementum consequat, nulla erat vulputate risus, ut iaculis nulla nunc non ligula. Donec faucibus consectetur felis, vel vulputate mi molestie ut. Sed nec blandit libero, sed sagittis felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vel tortor blandit, lobortis augue sed, fringilla metus. Donec massa risus, suscipit vel velit ac, ultrices egestas est. Morbi non elit felis. Maecenas dignissim magna nibh, et fringilla dui sagittis sed. Sed hendrerit enim sed libero dictum, eget viverra ante finibus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero volutpat turpis condimentum molestie. Nunc malesuada et ante ac ultrices. Mauris euismod turpis ut cursus condimentum. Fusce sit amet sapien leo. Aliquam condimentum, ligula ut elementum consequat, nulla erat vulputate risus, ut iaculis nulla nunc non ligula. Donec faucibus consectetur felis, vel vulputate mi molestie ut. Sed nec blandit libero, sed sagittis felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vel tortor blandit, lobortis augue sed, fringilla metus. Donec massa risus, suscipit vel velit ac, ultrices egestas est. Morbi non elit felis. Maecenas dignissim magna nibh, et fringilla dui sagittis sed. Sed hendrerit enim sed libero dictum, eget viverra ante finibus.</p>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus quis libero volutpat turpis condimentum molestie. Nunc malesuada et ante ac ultrices. Mauris euismod turpis ut cursus condimentum. Fusce sit amet sapien leo. Aliquam condimentum, ligula ut elementum consequat, nulla erat vulputate risus, ut iaculis nulla nunc non ligula. Donec faucibus consectetur felis, vel vulputate mi molestie ut. Sed nec blandit libero, sed sagittis felis. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum vel tortor blandit, lobortis augue sed, fringilla metus. Donec massa risus, suscipit vel velit ac, ultrices egestas est. Morbi non elit felis. Maecenas dignissim magna nibh, et fringilla dui sagittis sed. Sed hendrerit enim sed libero dictum, eget viverra ante finibus.</p>
       </div>
     </div>
       <!-- Time -->
