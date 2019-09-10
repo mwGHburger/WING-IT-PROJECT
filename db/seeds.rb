@@ -17,7 +17,7 @@ users_attributes = [
     username:         'John',
     email:        'john@wick.com',
     password:     123456,
-    remote_photo_url: 'https://www.indiewire.com/wp-content/uploads/2019/05/07956f40-77c4-11e9-9073-657a85982e73.jpg?w=780'
+    remote_photo_url: 'https://www.celebplasticsurgeryonline.com/wp-content/uploads/2016/01/Keanu-Reeves-plastic-surgery-6-150x150.jpg'
   },
   {
     username:         'Tony',
