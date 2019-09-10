@@ -1,8 +1,10 @@
 <%= render 'shared/navbar' %>
+
+<br>
 <!-- Comments -->
   <div id="comments">
     <% if @post.comments.blank? %>
-      Be the first to leave a review!
+      <%= render 'comments/form', post: @post, comment: @comment %>
     <% else %>
       <% @post.comments.each do |comment| %>
         <%= render 'comments/show', comment: comment %>
@@ -36,7 +38,14 @@
           <!-- upvote -->
 
           <div>
-            <i class="far fa-comment"></i>
+            <%= link_to post_comments_path(@post), remote: true do %>
+              <i class="far fa-comment ml-2"></i>
+            <% end %>
+          </div>
+          <div>
+            <%= link_to post_path(@post), remote: true do %>
+              <i class="fa fa-info ml-2"></i>
+            <% end %>
           </div>
 
           <div class="i-bookmark"><%= link_to bookmarks_update_path(post: @post), id:"btn-bookmark", remote: :true do %>
@@ -46,14 +55,15 @@
 
         </div>
 
-      </div>
-
       <h2 class="js-username"><%= @post.user.username %></h2>
-      <p class="js-post-content mb-1"><%= @post.content %></p>
+<%= render 'comments/form', post: @post, comment: @comment %>
       <div class="i-time"><i class="far fa-clock"></i>
         <%= distance_of_time_in_words(Time.current - @post.created_at)%> ago
       </div>
     </div>
+
+      </div>
+
 
     <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-large-user avatar-bordered js-user-avatar" />
   </div>

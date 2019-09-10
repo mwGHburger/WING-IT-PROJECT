@@ -1,7 +1,7 @@
 
 <div class="form-create-post">
   <%= simple_form_for([ post, comment ], remote: true) do |form| %>
-    <%= form.input :content %>
-    <%= form.button :submit %>
+    <%= form.input :content, input_html: { class: 'comment-content' } %>
+    <%= form.button :submit, class: 'comment-btn', value: "Post" %>
   <% end %>
 </div>
