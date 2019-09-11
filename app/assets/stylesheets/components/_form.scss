@@ -14,7 +14,7 @@
 
 .form-signin {
   width: 256px;
-  height: 300px;
+  height: 150px;
 }
 
 .page-sign-in {
@@ -32,10 +32,16 @@
 .links {
   text-align: center;
   color: #e5e5e5;
+  position: relative;
 
   .link-forgot-password {
     text-decoration: underline;
-    padding-bottom: 100px;
+    margin-top: 8px;
+  }
+
+  .link-signin {
+    position: absolute;
+    top: 320px;
   }
 
   a {
