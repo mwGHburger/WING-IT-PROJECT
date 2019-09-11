@@ -38,9 +38,18 @@ export default class Map {
 
     // Mapbox listens to the event where the map boundaries shift
     this.map.on('moveend', this.onMapMoveEnd);
+
     this.geolocateControl.on('geolocate', () => {
-      document.querySelector('.js-map-loading').classList.add('d-none');
+      this.removeLoading();
     });
+
+    setTimeout(() => {
+      this.removeLoading();
+    }, 5000);
+  }
+
+  removeLoading() {
+    document.querySelector('.js-map-loading').classList.add('d-none');
   }
 
   buildGeoControl() {
@@ -69,6 +78,41 @@ export default class Map {
     });
   }
 
+  addPost(post, options) {
+    options = options || {}
+    const popup = new mapboxgl.Popup().setHTML() //`<img src='${post.photo.url}'>`; // Need to revisit this for customising windows
+
+    const teaserCardEl = this.renderCardEl(post); //renderCardEl function creates small card based on post
+    this.postCardContainerEl.appendChild(teaserCardEl); // Add cards to container
+
+    teaserCardEl.addEventListener('click', () => {
+      Rails.ajax({
+        type: 'GET',
+        url: post.url + '.js'
+      })
+    })
+
+    const markerEl = document.createElement('div');
+    markerEl.classList.add('map-marker');
+    markerEl.innerHTML = `<img src=${post.user.photo.url}>`;
+
+    markerEl.addEventListener('click', () => {
+      this.postCardContainerEl.scrollLeft = teaserCardEl.offsetLeft;
+    });
+    // create markers from current post
+    this.currentMarkers[post.id] = new mapboxgl.Marker({
+      element: markerEl,
+    })
+      .setLngLat([ post.longitude, post.latitude ])
+      .addTo(this.map);
+
+    this.syncMapMode();
+
+    if(options.highlight) {
+      console.log("highlight post")
+    }
+  }
+
   addPostsToMap(posts) {
     Object.keys(this.currentMarkers).forEach(postId => {
       this.currentMarkers[postId].remove();
@@ -78,38 +122,7 @@ export default class Map {
 
     this.postCardContainerEl.innerHTML = '';
 
-    posts.forEach((post) => {
-      // stops loading markers on top of each other
-      //if (!currentMarkers[post.id]) {
-        const popup = new mapboxgl.Popup().setHTML() //`<img src='${post.photo.url}'>`; // Need to revisit this for customising windows
-
-        const teaserCardEl = this.renderCardEl(post); //renderCardEl function creates small card based on post
-        this.postCardContainerEl.appendChild(teaserCardEl); // Add cards to container
-
-        teaserCardEl.addEventListener('click', () => {
-          Rails.ajax({
-            type: 'GET',
-            url: post.url + '.js'
-          })
-        })
-
-        const markerEl = document.createElement('div');
-        markerEl.classList.add('map-marker');
-        markerEl.innerHTML = `<img src=${post.user.photo.url}>`;
-
-        markerEl.addEventListener('click', () => {
-          this.postCardContainerEl.scrollLeft = teaserCardEl.offsetLeft;
-        });
-        // create markers from current post
-        this.currentMarkers[post.id] = new mapboxgl.Marker({
-          element: markerEl,
-        })
-          .setLngLat([ post.longitude, post.latitude ])
-          .addTo(this.map);
-
-        this.syncMapMode();
-      //}
-    });
+    posts.forEach((post) => { this.addPost(post) });
   }
 
   addCreateFormToMap = (createFormHtml) => {
@@ -189,14 +202,26 @@ export default class Map {
     const cardEl = document.createElement('div');
     cardEl.classList.add('card-small');
 
+    const uniquePhotoId = `post-teaser-photo-${post.id}`;
+
     cardEl.innerHTML = `
-      <img class='js-post-photo' src='${post.post_photo}'/>
-      <img class='js-user-avatar' src='${post.user.photo.url}' />
+      <img async class='js-post-photo' src='${post.post_photo}' id="${uniquePhotoId}" onerror="window.onMapPhotoError('${uniquePhotoId}')" />
+      <img async class='js-user-avatar' src='${post.user.photo.url}' />
       <h2 class='card-small-title'>${post.content}
       <p class='card-small-time'>${post.time}</p></h2>
     `;
 
     return cardEl;
   }
+}
+
+// Rails notifies action cable before images are uploaded to cloudinary which
+// causes 404 errors to happen, so if the image doesn't load, keep retrying
+// every second.
+window.onMapPhotoError = function(uniquePhotoId) {
+  setTimeout(() => {
+    const photoEl = document.getElementById(uniquePhotoId);
+    photoEl.src = `${photoEl.src}?t=${new Date().getTime()}`;
+  }, 1000);
 }
 
