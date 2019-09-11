@@ -1,18 +1,21 @@
-// .dashboard-container {
-//     background-color:#6c797d;
-//     color:black;
-//     height:100vh;
-//     padding:96px;
-//   }
+
+  .photo {
+    /* display: block; */
+    margin-top: 108px;
+    color: white;
+    font-size: 1px;
+    // padding:16px;
+}
 
 
 .dash-avatar {
     text-align: center;
     background-color: #6c797d;
-    height: auto;
+    // height: ;
     color: orange;
     margin-top: 4px;
     overflow: hidden;
+    padding:8px;
     h1{
       color: orange;
       font-size: 48;
@@ -20,8 +23,8 @@
   }
 
 .dash-avatar img {
-   height: 75px;
-   width: 75px;
+   height: 100px;
+   width: 100px;
    border-radius: 50px;
   }
 
@@ -29,12 +32,12 @@
     background-color: #6c797d;
  a {
     text-align: center;
-    font-size: 32px;
+    font-size: 16px;
     text-decoration: none;
   }
   a.active {
-    background-color: white;
-    color: yellow;
+    background-color: transparent;
+    color: white;
 
   }
   a.hover {
@@ -74,10 +77,15 @@
     font-size: 16px;
     line-height: 1.4;
     margin-bottom: 0;
-    margin-top: 8px;
+    // margin-top: 8px;
     color: white;
     opacity: 1.4;
     text-align: left;
+    // display: block;
+    // width: 300px;
+    // overflow: hidden;
+    // white-space: nowrap;
+    // text-overflow: ellipsis;
 
   }
 
@@ -95,13 +103,63 @@
    display: flex;
    justify-content: center;
  a.active {
-    color: yellow;
-    background-color: black;
+
   }
 }
 .tab-content {
   background-color: #6c797d;
   height: 100vh;
 }
+#myTabMD.nav.nav-tabs.md-tabs{
+  display: flex;
+  justify-content:center;
+  color:white;
+}
+#home-md.tab-pane a {
+  text:white;
+}
+.nav-tabs .nav-link.active{
+    color: #f8f9fa;
+    font-size: 12px;
+    background-color: transparent;
+    border:none;
+    // text-decoration: underline;
+    border-bottom: 2px solid #fff;
 
+  }
 
+.nav-tabs.nav-link{
+  font:12px;
+  color:white;
+}
+
+#profile-tab-md.nav-link {
+  font:12px;
+  color:white;
+
+}
+#home-tab-md.nav-link {
+  font:12px;
+  color:white;
+
+}
+#myTabMD.nav.nav-tabs.md-tabs {
+    display: flex;
+    justify-content: center;
+    color: white;
+    border-bottom-style: none;
+}
+.tab-content {
+    background-color: #6c797d;
+    height: 100vh;
+}
+.card {
+    position: relative;
+    display: flex;
+     flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-clip: border-box;
+    border: none;
+    border-radius: 2px;
+}
