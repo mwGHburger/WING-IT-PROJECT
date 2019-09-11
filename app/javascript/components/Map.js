@@ -110,6 +110,7 @@ export default class Map {
 
     if(options.highlight) {
       console.log("highlight post")
+      markerEl.classList.add('map-marker-animation');
     }
   }
 
