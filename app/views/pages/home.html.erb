@@ -1,21 +1,76 @@
 
-<div class="banner-landing-page" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://images.unsplash.com/photo-1543625247-45477d03e12f?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=federico-rizzarelli-KT7WwMrVMtI-unsplash.jpg);">
-    <%= render 'shared/navbar' %>
+<%= render 'shared/navbar'%>
+<div class="landing-banner-main">
   <div class="banner-text-box">
     <h1 class="mb-5">Explore around you,<br>with WingIt</h1>
-    <%= link_to "EXPLORE", map_path, class: "btn-explore"  %>
+    <%= link_to "LET'S EXPLORE", map_path, class: "btn-explore"  %>
   </div>
 </div>
 
-<div class="banner-landing-page" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://images.unsplash.com/photo-1562826542-449090f38c70?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=paul-gilmore-JoGNHupiwuA-unsplash.jpg);">
-</div>
-
-<div class="banner-landing-page" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(<%= asset_path('japan-osaka.jpg') %>
+<div class="landing-banner-sub" style="background-image: url(<%= asset_path('banner-map.jpg') %>
 );">
+  <i class="fas fa-map-marker-alt bounce"></i>
 </div>
 
-<div class="banner-landing-page" style="background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(https://images.unsplash.com/photo-1534067783941-51c9c23ecefd?ixlib=rb-1.2.1&q=85&fm=jpg&crop=entropy&cs=srgb&dl=guillaume-briard-lSXpV8bDeMA-unsplash.jpg );">
-</div>
+<section class="section-features" id="features">
+  <div class="section-features-inner">
+    <div class="row">
+        <div class="mb-4">
+            <i class="fab fa-wpexplorer icon-big"></i>
+            <h3>Explore</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing el accusantium doloribus aliquid cum.
+            </p>
+        </div>
+        <div class="mb-4">
+            <i class="fas fa-share-square icon-big"></i>
+            <h3>Share</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatibus dicta obcaecati quam
+            </p>
+        </div>
+        <div class="mb-4">
+            <i class="fab fa-connectdevelop icon-big"></i>
+            <h3>Connect</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Placeat voluptatibus dicta obcaecati quam
+            </p>
+        </div>
+      </div>
+    </div>
+</section>
+
+<section class="section-discover">
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80)">
+    Discover Food
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80)">
+    Discover Nature
+  </div>
+
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1565791380745-35e40266d760?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=941&q=80)">
+    Discover Hidden Gems
+  </div>
+
+</section>
+
+<section class="section-signup">
+  <div class="banner-text-box-signup">
+    <h3 class="mb-2">Sign up,<br>and start discovering</h3>
+    <img src="https://cdn.dribbble.com/users/1747793/screenshots/4328938/web-loop.gif">
+    <%= link_to "SIGN UP", map_path, class: "btn-explore"  %>
+  </div>
+</section>
+
+<section class="section-footer">
+  <p class="pt-4">&copy; 2019 by Wingit. All rights reserved.</p>
+</section>
+
+
+
+
+
+
+
+
 
 
 

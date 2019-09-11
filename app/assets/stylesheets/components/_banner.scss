@@ -1,16 +1,97 @@
-.banner-landing-page {
-  background-attachment: fixed; /* keeps the image in the same place when scrolling */
-  background-size: cover; /* shows the whole image/background */
+.landing-banner-main {
+  // background-attachment: fixed; /* keeps the image in the same place when scrolling */
+  // position: sticky;
+  background-size: auto; /* shows the whole image/background */
   background-position: center;
-  position: sticky;
+  background-color: #112e49;
   width: 100%;
-  height: 100vh; /* fill this header with 100% of the viewpoint. */
+  height: 60vh; /* fill this header with 100% of the viewpoint. */
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.banner-text-box {
-  position: absolute;
-  width: 70%;
-  top: 55%;
-  left: 55%;
-  transform: translate(-50%, -50%);
+.landing-banner-sub {
+  background-position: center;
+  background-color: #112e49;
+  width: 100%;
+  height: 30vh; /* fill this header with 100% of the viewpoint. */
+  background-repeat: no-repeat;
+  background-size: 540px 300px;
+  position: relative;
+  padding-bottom: 280px;
 }
+
+
+.banner-text-box {
+  text-align: center;
+
+  h1 {
+    letter-spacing: 1.2px;
+  }
+}
+
+.section-features {
+  background-color: #d0bfb3;
+  height: 100vh;
+  width: 100%;
+  color: #112e49;
+  padding: 64px 54px 54px 54px;
+  text-align: center;
+}
+
+.section-discover {
+  background-color: #ececec;
+  height: 100vh;
+  width: 100%;
+  color: #112e49;
+  padding: 64px 54px 54px 54px;
+  text-align: center;
+
+  .card-category {
+    background-size: cover;
+    background-position: center;
+    height: 180px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    margin-bottom: 40px;
+    border-radius: 6px;
+  }
+}
+
+.section-signup {
+  height: 70vh;
+  width: 100%;
+  background-color: #fff;
+
+  .banner-text-box-signup {
+    text-align: center;
+
+    h3 {
+      padding-top: 54px;
+      color: #112e49;
+    }
+
+    img {
+      width: 414px;
+      height: 312px;
+      padding-bottom: 24px;
+    }
+  }
+}
+
+.section-footer {
+  height: 10vh;
+  width: 100%;
+  background-color: #112e49;
+  text-align: center;
+  color: #fff;
+}
+
