@@ -1,5 +1,5 @@
 <div class="page-sign-in"  style="background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://cdn.dribbble.com/users/1803663/screenshots/6163551/nature-4.png);">
-  <div class="animate-container">
+  <div>
   <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
       <div class="form-inputs form-signin">
         <%= f.input :email,
@@ -16,7 +16,7 @@
         <%#= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
 
       <div class="form-actions">
-        <%= f.button :submit, "SIGN IN", class: "btn-login mt-3 mb-3" %>
+        <%= f.button :submit, "SIGN IN", class: "btn-login" %>
       </div>
     </div>
   <% end %>
