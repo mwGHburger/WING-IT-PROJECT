@@ -1,13 +1,13 @@
-.comment-box {
-  border: 1px solid rgba(200,200,200,.8);
+#comment-box {
+  border: 1px solid white;
   padding: 8px 16px;
-  margin: 8px 0px;
+  // margin: 8px 0px;
 }
 
 .comment-info {
   border-radius: 30px;
   height: 30px;
-  width: 80%;
+  width: 296px;
 }
 
 .form-create-post {
@@ -18,8 +18,33 @@
   color: $white;
 }
 
-.post-comment-btn {
-  height: 40px;
-  border-radius: 25px;
-  padding: 8px 16px;
+
+// ---------------------------------------
+
+.form-create-post-inner {
+  display: flex;
+  border: 1px solid white;
+  border-radius: 8px;
+  padding-top: 8px;
+  max-width: 296px;
+
+  .input-comment-content {
+    height: 32px;
+    border: none;
+    color: #a1a3a6;
+
+    textarea {
+      background: transparent;
+    }
+  }
+
+  .post-comment-btn {
+    border: none;
+    background: none;
+    color: #a1a3a6;
+    height: 40px;
+    border-radius: 25px;
+    padding: 8px 16px;
+
+  }
 }

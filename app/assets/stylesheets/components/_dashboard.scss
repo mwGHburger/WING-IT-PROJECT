@@ -1,165 +1,100 @@
-
-  .photo {
-    /* display: block; */
-    margin-top: 108px;
-    color: white;
-    font-size: 1px;
-    // padding:16px;
+.dashboard {
+  height: 100vh;
+  width: 100%;
+  background-color: #fff;
 }
 
+.dashboard-nav {
+  padding-top: 24px;
+  height: 108px;
+  width: 100%;
+  text-align: center;
+  background-color: #d0bfb3;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.2);
 
-.dash-avatar {
-    text-align: center;
-    background-color: #6c797d;
-    // height: ;
-    color: orange;
-    margin-top: 4px;
-    overflow: hidden;
-    padding:8px;
-    h1{
-      color: orange;
-      font-size: 48;
-    }
+  img {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.2);
+    border: #df5715 1px solid;
+    object-fit: cover;
   }
 
-.dash-avatar img {
-   height: 100px;
-   width: 100px;
-   border-radius: 50px;
+  h3 {
+    margin: 0;
+    padding-top: 8px;
+    font-size: 18px;
+    color: #fff;
   }
+}
 
 .nav-tabs {
-    background-color: #6c797d;
- a {
-    text-align: center;
-    font-size: 16px;
-    text-decoration: none;
-  }
-  a.active {
-    background-color: transparent;
-    color: white;
-
-  }
-  a.hover {
-    color: black;
-    background-color: orange;
-    opacity: 1.2;
-  }
-}
-
-.card-product {
-    overflow: hidden;
-    max-height: 250px;
-    box-shadow: 0 0 24px rgba(0,0,0.4,0.2);
-    display: flex;
-    border-radius: 10px;
-    background-position: center;
-    background-size: cover;
-    a {
-      font: 8px;
-      color: orange;
-
-    }
-}
-
-.card-product h2 {
-    font-size: 16px;
-    font-weight: bold;
-    margin: 0;
-   text-align: left;
-   color: white;
-   opacity:1.7;
-
-}
-
-
-.info p{
-    font-size: 16px;
-    line-height: 1.4;
-    margin-bottom: 0;
-    // margin-top: 8px;
-    color: white;
-    opacity: 1.4;
-    text-align: left;
-    // display: block;
-    // width: 300px;
-    // overflow: hidden;
-    // white-space: nowrap;
-    // text-overflow: ellipsis;
-
-  }
-
-.dash-wrap {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 16px;
-    margin: 16px;
-  }
-
-.nav-link {
-   color: orange;
-   background-color: transparent;
-   text-align:center;
-   display: flex;
-   justify-content: center;
- a.active {
-
-  }
-}
-.tab-content {
-  background-color: #6c797d;
-  height: 100vh;
-}
-#myTabMD.nav.nav-tabs.md-tabs{
+  border: none;
+  // background-color: #112e49;
   display: flex;
-  justify-content:center;
-  color:white;
-}
-#home-md.tab-pane a {
-  text:white;
-}
-.nav-tabs .nav-link.active{
-    color: #f8f9fa;
-    font-size: 12px;
-    background-color: transparent;
-    border:none;
-    // text-decoration: underline;
-    border-bottom: 2px solid #fff;
-
-  }
-
-.nav-tabs.nav-link{
-  font:12px;
-  color:white;
+  justify-content: center;
 }
 
-#profile-tab-md.nav-link {
-  font:12px;
-  color:white;
+.nav-item {
+  padding-top: 8px;
+  padding-bottom: 16px;
+}
 
+.nav-link:link,
+.nav-link:visited {
+  color: #112e49;
+  text-decoration: none;
+  padding-bottom: 1px;
+  transition: border-bottom 0.2s color 0.2s;
 }
-#home-tab-md.nav-link {
-  font:12px;
-  color:white;
 
+.nav-link:active {
+  color: yellow;
+  border-bottom: 1px solid #112e49;
 }
-#myTabMD.nav.nav-tabs.md-tabs {
-    display: flex;
-    justify-content: center;
-    color: white;
-    border-bottom-style: none;
-}
-.tab-content {
-    background-color: #6c797d;
-    height: 100vh;
-}
+
+
 .card {
-    position: relative;
-    display: flex;
-     flex-direction: column;
-    min-width: 0;
-    word-wrap: break-word;
-    background-clip: border-box;
-    border: none;
-    border-radius: 2px;
+  border: none;
+}
+
+.card-trip {
+  overflow: hidden;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+}
+
+.card-trip > img {
+  height: 200px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.card-trip h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-trip p {
+  font-size: 12px;
+  opacity: .7;
+  margin: 0;
+}
+
+
+.card-trip .card-trip-infos {
+  padding: 16px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  position: relative;
+}
+
+.card-trip-infos .card-trip-user {
+  position: absolute;
+  right: 16px;
+  top: -20px;
+  width: 40px;
 }

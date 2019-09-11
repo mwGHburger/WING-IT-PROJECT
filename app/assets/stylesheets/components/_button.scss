@@ -1,9 +1,11 @@
 .btn-explore {
-  color: $dark;
-  background-color: $white;
-  padding: 8px 40px;
+  color: #fff;
+  font-weight: bold;
+  background-color: #df5715;
+  padding: 12px 40px;
   border-radius: 50px;
   transition: opacity 0.3s ease;
+  letter-spacing: 1px;
 }
 
 .btn-time-posted {
