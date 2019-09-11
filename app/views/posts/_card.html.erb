@@ -2,13 +2,18 @@
   <%= cl_image_tag @post.photo, height: 350, width: 350, crop: :fill %>
   <div class="card-large-infos d-flex flex-column">
 
+      <div class="directions-btn">
+        <%= link_to @post.navigation_url do %>
+          <i class="fas fa-shoe-prints"></i>
+        <% end %>
+      </div>
 
       <!-- div containing ICONS -->
       <div class="icon-large-card-container align-self-start">
         <!-- upvote icon -->
         <div class="btn-like">
           <%= link_to like_post_path(@post), class:"like-btn", method: :put, remote: :true do %>
-            <i class="fas fa-thumbs-up"> <span class="like-count" style="color: white; font-family: Roboto; font-weight: normal;"><%= @post.get_upvotes.size %></span></i>
+            <i class="fas fa-fire"> <span class="like-count" style="color: white; font-family: Roboto; font-weight: normal;"><%= @post.get_upvotes.size %></span></i>
           <% end %>
         </div>
 
