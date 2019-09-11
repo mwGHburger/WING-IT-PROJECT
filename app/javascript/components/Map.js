@@ -91,10 +91,19 @@ export default class Map {
         url: post.url + '.js'
       })
     })
-
+    // style map marker
     const markerEl = document.createElement('div');
     markerEl.classList.add('map-marker');
-    markerEl.innerHTML = `<img src=${post.user.photo.url}>`;
+    markerEl.innerHTML = `
+                          <img src=${post.user.photo.url}>
+                          <div class="speech-bubble" id="wave">
+                            <div class="dot-alignment">
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            <span class="dot"></span>
+                            </div>
+                          </div>
+                          `;
 
     markerEl.addEventListener('click', () => {
       this.postCardContainerEl.scrollLeft = teaserCardEl.offsetLeft;
