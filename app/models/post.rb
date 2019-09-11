@@ -15,6 +15,10 @@ class Post < ApplicationRecord
     super.present? || self.new_record? ? super : DEFAULT_PHOTO_URL
   end
 
+  def navigation_url
+    "http://maps.google.com.au/maps?daddr=(#{latitude},#{longitude})"
+  end
+
   private
 
   def broadcast_to_map
