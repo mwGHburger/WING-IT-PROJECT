@@ -1,9 +1,10 @@
 <%= render 'shared/navbar' %>
 
   <div class = "dash-avatar mt-16">
-    <div class ="photo mt-16">
-            <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill %>
-          <h2><%= current_user.username.capitalize %></h2>
+    <div class ="photo mt-16 p-16">
+            <div class="user-photo mb-12"><%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill %>
+            </div>
+          <h2 class ="header mt-16"><%= current_user.username.capitalize %></h2>
 
          <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
 

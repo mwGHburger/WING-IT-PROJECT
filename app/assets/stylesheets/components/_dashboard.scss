@@ -4,6 +4,7 @@
     margin-top: 108px;
     color: white;
     font-size: 1px;
+    // padding:16px;
 }
 
 
@@ -22,9 +23,9 @@
   }
 
 .dash-avatar img {
-   height: 50px;
-   width: 50px;
-   border-radius: 25px;
+   height: 100px;
+   width: 100px;
+   border-radius: 50px;
   }
 
 .nav-tabs {
@@ -126,7 +127,7 @@
   font:12px;
   color:white;
 }
-// .nav-tabs .nav-link
+
 #profile-tab-md.nav-link {
   font:12px;
   color:white;
@@ -135,7 +136,7 @@
 #home-tab-md.nav-link {
   font:12px;
   color:white;
-   // border-right: 2px solid #fff;
+
 }
 #myTabMD.nav.nav-tabs.md-tabs {
     display: flex;
