@@ -1,5 +1,6 @@
 import mapboxgl from 'mapbox-gl';
 import fetch from 'cross-fetch';
+import FileInputPreview from './FileInputPreview';
 
 const CREATE_MODE = 'create';
 const EXPLORE_MODE = 'explore';
@@ -117,48 +118,40 @@ export default class Map {
 
     const userCoords = [ userLon, userLat ];
 
-    const popup = new mapboxgl.Popup({
-      anchor: 'bottom',
-      className: 'create-post-popup'
-    })
-      .setHTML(createFormHtml)
-      .setLngLat(userCoords)
-      .addTo(this.map);
-
-    // const marker = new mapboxgl.Marker()
-    //   .setLngLat(userCoords)
-    //   .addTo(map);
-
-    this.map.flyTo({ center: userCoords, zoom: 18 });
-    this.mapMode = CREATE_MODE;
-
-    const postFormEl = document.querySelector('.js-create-post-form');
-
-    document.querySelector('.js-create-post-lon').value = userLon;
-    document.querySelector('.js-create-post-lat').value = userLat;
-
-    this.syncMapMode();
-
-    // File preview input.
-    const postImageInput = document.querySelector('.js-post-form-image-field');
-    const postImageWrapperEl = document.querySelector('.js-post-form-image-wrapper');
-    postImageInput.addEventListener('change', () => {
-      var oFReader = new FileReader();
-      oFReader.readAsDataURL(postImageInput.files[0]);
-
-      oFReader.onload = function (oFREvent) {
-        postFormEl.classList.add('create-post-form--has-image');
-        const uploadPreviewEl = document.querySelector('.js-post-form-upload-preview');
-        uploadPreviewEl.classList.remove('d-none');
-        postImageWrapperEl.classList.add('d-none');
-        uploadPreviewEl.src = oFREvent.target.result;
-      };
-    });
-
+    const popup = this.addPopupToMap(createFormHtml, userCoords, 'create-post-popup');
     popup.on('close', () => {
       this.mapMode = EXPLORE_MODE;
       this.syncMapMode();
     });
+
+
+    this.map.flyTo({ center: userCoords, zoom: 18 });
+    this.mapMode = CREATE_MODE;
+
+    const popupEl = popup.getElement();
+    const postFormEl = popupEl.querySelector('.js-create-post-form');
+    popupEl.querySelector('.js-create-post-lon').value = userLon;
+    popupEl.querySelector('.js-create-post-lat').value = userLat;
+
+    this.syncMapMode();
+
+    // File preview input.
+    const fileInputPreview = new FileInputPreview({
+      postImageInputSelector: '.js-post-form-image-field',
+      postImageWrapperSelector: '.js-post-form-image-wrapper',
+      uploadPreviewSelector: '.js-post-form-upload-preview',
+      postFormEl,
+    });
+  }
+
+  addPopupToMap(popupHtml, coords, className = '') {
+    return new mapboxgl.Popup({
+      anchor: 'bottom',
+      className,
+    })
+      .setHTML(popupHtml)
+      .setLngLat(coords)
+      .addTo(this.map);
   }
 
   syncMapMode() {
@@ -170,8 +163,8 @@ export default class Map {
     document.body.classList.toggle('is--post-mode', this.mapMode === CREATE_MODE);
   }
 
-  onMapMoveEnd = () => {
-    var bounds = this.map.getBounds();
+  getLatestPostsForMapBounds() {
+    const bounds = this.map.getBounds();
     // Get Max Lat and Lng
     let northEast = bounds.getNorthEast()
     // Get Min Lat and Lng
@@ -186,6 +179,10 @@ export default class Map {
       .then(postsResponse => {
         this.addPostsToMap(postsResponse); // #3 Add posts to map
       });
+  }
+
+  onMapMoveEnd = () => {
+    this.getLatestPostsForMapBounds();
   }
 
   renderCardEl = (post) => {
