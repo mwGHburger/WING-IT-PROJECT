@@ -6,13 +6,17 @@ class Post < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :bookmarks, dependent: :destroy
   mount_uploader :photo, PhotoUploader
-
   validates :content, presence: true
+  validates :content, presence: true, length: { maximum: 280 }
 
   after_create :broadcast_to_map
 
   def photo
     super.present? || self.new_record? ? super : DEFAULT_PHOTO_URL
+  end
+
+  def navigation_url
+    "http://maps.google.com.au/maps?daddr=(#{latitude},#{longitude})"
   end
 
   private
