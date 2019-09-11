@@ -1,15 +1,15 @@
 .speech-bubble {
   position: absolute;
   // transform-origin: 0% 100%;
-  background-color: rgb(200,200,200);
+  background-color: rgb(225,225,225);
   color: white;
   border-radius: 20px;
-  width: 75px;
-  padding: 8px;
-  right: -64px;
-  top: -32px;
+  width: 60px;
+  padding: 0px;
+  right: -48px;
+  top: -20px;
   letter-spacing: 4px;
-  font-size: 24px;
+  font-size: 16px;
   vertical-align: middle;
   text-align: center;
   // transform: scale(0);
@@ -25,20 +25,20 @@
   left: 5px;
   border-style: solid;
   border-width: 8px;
-  border-color: rgb(200,200,200) transparent transparent rgb(200,200,200);
+  border-color: rgb(225,225,225) transparent transparent rgb(225,225,225);
   transform: rotate(10deg);
 }
 
 .dot-alignment {
   padding-left: 2px;
-  padding-bottom: 2px;
+  padding-bottom: 4px;
 }
 
 
 .dot {
   display:inline-block;
-  width: 6px;
-  height: 6px;
+  width: 4px;
+  height: 4px;
   border-radius:50%;
   margin-right: 3px;
   background: rgba(100,100,100,1);
@@ -61,6 +61,6 @@
   }
 
   30% {
-    transform: translateY(-10px);
+    transform: translateY(-8px);
   }
 }
