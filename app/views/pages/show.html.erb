@@ -18,11 +18,13 @@
             <% current_user.posts.each do |post| %>
              <div class="card-product"style="background-image: url(<%= cl_image_path post.photo,   crop: :fill %>);">
              <div class ="info">
-             <p><%= post.content %></p>
+               <h2><%= link_to "Check out post", post_path(post) %></h2>
+             <!-- <p><%= post.content %></p> -->
              <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
                <p>Upvotes: <%= post.get_upvotes.size %></p>
-               <%= link_to "Check out post", post_path(post) %>
+               <%#= link_to "Check out post", post_path(post) %>
              </div>
+
             </div>
            <% end %>
      </div>
@@ -32,10 +34,10 @@
           <% current_user.bookmarks.each do |bookmark| %>
             <div class ="card-product" style="background-image: url(<%= cl_image_path bookmark.post.photo,   crop: :fill %>);">
             <div class = "info">
+              <h2><%= link_to "Check out post", post_path(bookmark.post) %></h2>
                 <h2>By <%= bookmark.post.user.username %></h2>
-                  <p><%= bookmark.post.content %></p>
+                  <!-- <p><%= bookmark.post.content %></p> -->
                   <p>Posted: <%= bookmark.post.created_at.strftime("Posted on: %m/%d/%Y") %></p>
-                  <%= link_to "Check out post", post_path(bookmark.post) %>
                 </div>
                 </div>
               <% end %>
