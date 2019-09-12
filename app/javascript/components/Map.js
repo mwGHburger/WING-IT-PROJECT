@@ -54,6 +54,7 @@ export default class Map {
 
   removeLoading() {
     document.querySelector('.js-map-loading').classList.add('d-none');
+    document.querySelector('.js-new-post-button').classList.remove('d-none');
   }
 
   buildGeoControl() {
@@ -63,7 +64,7 @@ export default class Map {
       },
       trackUserLocation: true,
       fitBoundsOptions: {
-        maxZoom: 15,  // Zoom adjustment
+        maxZoom: 17,  // Zoom adjustment
         linear: false,
         animate: false,
       },
@@ -77,8 +78,8 @@ export default class Map {
       style: 'mapbox://styles/mapbox/dark-v10',
       duration: 0.5,
       pitch: 60,
-      zoom: 14
-      //bearing: -60,
+      zoom: 16,
+      center: [144.991149, -37.8238254]
     });
   }
 
