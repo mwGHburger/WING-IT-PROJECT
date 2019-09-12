@@ -36,6 +36,23 @@
     height: 38px;
     padding: 0px 16px;
   }
+
+  .form-group {
+    margin-bottom: 0;
+  }
+
+  textarea {
+    height: 100%;
+    border: none;
+    padding-top: 8px;
+  }
+
+  textarea:focus {
+    background: rgba(0,0,0,0.5);
+    border-radius: 6px;
+    color: white;
+    border: none;
+  }
 }
 
 
