@@ -4,6 +4,8 @@ import FileInputPreview from './FileInputPreview';
 
 const CREATE_MODE = 'create';
 const EXPLORE_MODE = 'explore';
+const CARD_WIDTH = 180;
+const SCREEN_WIDTH = window.outerWidth; // Assuming this doesn't change during session.
 
 export default class Map {
   constructor(mapSelector, postCardContainerSelector) {
@@ -11,9 +13,11 @@ export default class Map {
     this.postCardContainerEl = document.querySelector(postCardContainerSelector);
 
     this.currentMarkers = {};
+    this.currentPosts = {};
     this.map = null;
     this.mapMode = EXPLORE_MODE;
     this.geolocateControl = null;
+    this.activePost = null;
 
 
     if (this.mapEl && this.postCardContainerEl) {
@@ -89,8 +93,11 @@ export default class Map {
       Rails.ajax({
         type: 'GET',
         url: post.url + '.js'
-      })
+      });
+      this.setPostActive(post);
     })
+    this.currentPosts[post.id] = teaserCardEl;
+
     // style map marker
     const markerEl = document.createElement('div');
     markerEl.classList.add('map-marker');
@@ -106,7 +113,7 @@ export default class Map {
                           `;
 
     markerEl.addEventListener('click', () => {
-      this.postCardContainerEl.scrollLeft = teaserCardEl.offsetLeft;
+      this.setPostActive(post);
     });
     // create markers from current post
     this.currentMarkers[post.id] = new mapboxgl.Marker({
@@ -131,8 +138,13 @@ export default class Map {
     });
 
     this.postCardContainerEl.innerHTML = '';
+    this.currentPosts = {};
 
-    posts.forEach((post) => { this.addPost(post) });
+    posts.forEach((post) => {
+      this.addPost(post);
+    });
+
+    this.syncActivePost();
   }
 
   addCreateFormToMap = (createFormHtml) => {
@@ -142,6 +154,7 @@ export default class Map {
     const userCoords = [ userLon, userLat ];
 
     const popup = this.addPopupToMap(createFormHtml, userCoords, 'create-post-popup');
+    this.mainPopup = popup;
     popup.on('close', () => {
       this.mapMode = EXPLORE_MODE;
       this.syncMapMode();
@@ -155,6 +168,16 @@ export default class Map {
     const postFormEl = popupEl.querySelector('.js-create-post-form');
     popupEl.querySelector('.js-create-post-lon').value = userLon;
     popupEl.querySelector('.js-create-post-lat').value = userLat;
+
+    const postSubmitButton = postFormEl.querySelector(".js-create-post-button");
+    postSubmitButton.addEventListener("click", (event) => {
+      // Add loading behavior to the form
+      // Disable button
+      console.log("Sending stuff"); // happens imediatelly
+      setTimeout(()=>{
+        postSubmitButton.value = "Sending..."
+      }, 1) // Defferred to wait for Rails Ajax to finish manipulating the form.
+    });
 
     this.syncMapMode();
 
@@ -177,6 +200,12 @@ export default class Map {
       .addTo(this.map);
   }
 
+  setPostActive(post) {
+    this.activePost = post;
+
+    this.syncActivePost();
+  }
+
   syncMapMode() {
     Object.values(this.currentMarkers).forEach(marker => {
       const markerEl = marker.getElement();
@@ -184,6 +213,26 @@ export default class Map {
     });
 
     document.body.classList.toggle('is--post-mode', this.mapMode === CREATE_MODE);
+  }
+
+  syncActivePost() {
+    Object.values(this.currentPosts).forEach(element => {
+      element.classList.remove('card-small--active');
+    });
+    Object.values(this.currentMarkers).forEach(mapboxMarker => {
+      const element = mapboxMarker.getElement();
+      element.classList.remove('map-marker--active');
+    });
+
+    if (this.activePost) {
+      const teaserCardEl = this.currentPosts[this.activePost.id];
+
+      teaserCardEl.classList.add('card-small--active');
+      this.currentMarkers[this.activePost.id].getElement().classList.add('map-marker--active');
+
+      const extraXToMakeSureCardGoesToMiddle = (SCREEN_WIDTH - CARD_WIDTH) / 2;
+      this.postCardContainerEl.scrollLeft = teaserCardEl.offsetLeft - extraXToMakeSureCardGoesToMiddle;
+    }
   }
 
   getLatestPostsForMapBounds() {

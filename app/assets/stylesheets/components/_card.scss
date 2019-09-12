@@ -11,8 +11,14 @@
   margin-right: 10px;
   transition: transform 0.2s;
 
-  &:hover {
-    transform: scale(1.05);
+  // &:hover {
+  //   transform: scale(1.05);
+  // }
+
+  &--active {
+    transform: scale(1.2);
+    box-shadow: 0 0 9px rgba(0,0,0,0.6);
+    z-index: 1;
   }
 }
 

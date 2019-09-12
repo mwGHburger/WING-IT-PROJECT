@@ -13,13 +13,28 @@
   <div class="card-container js-post-container">
   </div>
   <div class="map-loading js-map-loading">
-    <div><span class="fas fa-globe-asia fa-spin"></span> Loading your location ...</div>
+    <div id="loading-wave ">
+      <span class="fas fa-globe-asia loading-dot fa-spin"></span>
+      <span class="loading-dot">L</span>
+      <span class="loading-dot">O</span>
+      <span class="loading-dot">A</span>
+      <span class="loading-dot">D</span>
+      <span class="loading-dot">I</span>
+      <span class="loading-dot">N</span>
+      <span class="loading-dot">G</span>
+      <span class="loading-dot"> </span>
+      <span class="loading-dot">M</span>
+      <span class="loading-dot">A</span>
+      <span class="loading-dot">P</span>
+      <span class="loading-dot">.</span>
+      <span class="loading-dot">.</span>
+      <span class="loading-dot">.</span>
+    </div>
   </div>
-  <div class="new-post-button">
-    <%= link_to "+", new_post_path, class: 'btn', remote: true %>
+
+  <div class="new-post-button js-new-post-button">
+    <%= link_to "+", new_post_path, class: 'btn btn-primary', remote: true %>
   </div>
 </div>
-
-<br>
 
 
