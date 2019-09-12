@@ -35,19 +35,19 @@
 
     <div class="tab-pane fade active" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
       <% current_user.bookmarks.each do |bookmark| %>
-      <div class="card-trip mb-4">
-        <img src="<%= cl_image_path bookmark.post.photo, crop: :fill %>" alt="post-image">
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= bookmark.post.user.username %></h2>
-            <p><%= bookmark.post.content %></p>
-            <p class="mb-4"><%= bookmark.post.created_at.strftime("Posted: %m/%d/%Y") %></p>
-            <p><%= link_to "See post", post_path(bookmark.post) %></p>
+        <%= link_to post_path(bookmark.post.id), class: 'card-trip mb-4', remote: true do %>
+          <img src="<%= cl_image_path bookmark.post.photo, crop: :fill %>" alt="post-image">
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= bookmark.post.user.username %></h2>
+              <p><%= bookmark.post.content %></p>
+              <p class="mb-4"><%= bookmark.post.created_at.strftime("Posted: %m/%d/%Y") %></p>
+            </div>
           </div>
         </div>
-      </div>
+        <% end %>
       <% end %>
-    </div>
+      </div>
 
   </div>
 </div>
