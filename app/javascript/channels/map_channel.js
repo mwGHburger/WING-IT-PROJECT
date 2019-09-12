@@ -20,7 +20,7 @@ const channelCallbacks = {
 };
 
 const initMapChannel = () => {
-  // consumer.subscriptions.create(channelConfig, channelCallbacks);
+  consumer.subscriptions.create(channelConfig, channelCallbacks);
 }
 
 export { initMapChannel };

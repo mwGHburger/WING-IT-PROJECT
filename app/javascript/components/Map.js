@@ -1,6 +1,8 @@
 import mapboxgl from 'mapbox-gl';
 import fetch from 'cross-fetch';
 import FileInputPreview from './FileInputPreview';
+import { storeCurrentPosition, getCurrentPosition } from './location';
+
 
 const CREATE_MODE = 'create';
 const EXPLORE_MODE = 'explore';
@@ -32,21 +34,21 @@ export default class Map {
   init() {
     this.map = this.buildMap(); // #1
     this.geolocateControl = this.buildGeoControl();
-
+    this.map.addControl(this.geolocateControl); // #2
 
     // Add Current Location via GeoLocate Control
     // subscribe to event
     this.map.on('load', (e) => {
-      this.map.addControl(this.geolocateControl); // #2
       this.geolocateControl.trigger();
     });
 
     // Mapbox listens to the event where the map boundaries shift
     this.map.on('moveend', this.onMapMoveEnd);
 
-    this.geolocateControl.on('geolocate', () => {
+    this.geolocateControl.on('geolocate', (position) => {
       this.removeLoading();
       this.initialLocationLoaded = true;
+      storeCurrentPosition(position);
     });
 
     this.geolocateControl.on('error', () => {
@@ -172,10 +174,9 @@ export default class Map {
   }
 
   addCreateFormToMap = (createFormHtml) => {
-    const userLat = localStorage.getItem('lat');
-    const userLon = localStorage.getItem('lon');
+    const { lat, lon } = getCurrentPosition();
 
-    const userCoords = [ userLon, userLat ];
+    const userCoords = [ lon, lat ];
 
     const popup = this.addPopupToMap(createFormHtml, userCoords, 'create-post-popup');
     this.mainPopup = popup;
@@ -190,8 +191,8 @@ export default class Map {
 
     const popupEl = popup.getElement();
     const postFormEl = popupEl.querySelector('.js-create-post-form');
-    popupEl.querySelector('.js-create-post-lon').value = userLon;
-    popupEl.querySelector('.js-create-post-lat').value = userLat;
+    popupEl.querySelector('.js-create-post-lon').value = lon;
+    popupEl.querySelector('.js-create-post-lat').value = lat;
 
     const postSubmitButton = postFormEl.querySelector(".js-create-post-button");
     postSubmitButton.addEventListener("click", (event) => {
