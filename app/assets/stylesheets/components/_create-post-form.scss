@@ -62,12 +62,10 @@
     // font-weight: bold;
 
     .mapboxgl-popup-close-button {
-
-    }
-
-    .mapboxgl-popup-close-button {
       color: #fff;
       font-size: 24px;
+      position: absolute;
+      right: 72px;
     }
 
     .js-post-form-image-wrapper {
@@ -81,10 +79,9 @@
 }
 
 .create-post-form-upload-button {
-  background: transparent;
-  border: 3px solid #df5715;
-  color: #df5715;
-  font-weight: bold;
+  background-color: #df5715;
+  color: #fff;
+  font-weight: normal;
   border-radius: 40px;
   font-size: 18px;
   padding: 15px;

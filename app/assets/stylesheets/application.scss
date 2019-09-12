@@ -11,3 +11,10 @@
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+
+.nav-link:active {
+  border: none;
+}
+.nav-link:focus {
+  outline: none;
+}
