@@ -13,6 +13,7 @@
   transition: transform 0.3s, opacity 0.3s;
   opacity: 1;
   transform: translateY(0);
+  -webkit-overflow-scrolling: touch;
 
   body.is--post-mode & {
     transform: translateY(30%);

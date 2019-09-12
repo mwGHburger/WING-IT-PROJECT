@@ -1,6 +1,8 @@
 import mapboxgl from 'mapbox-gl';
 import fetch from 'cross-fetch';
 import FileInputPreview from './FileInputPreview';
+import { storeCurrentPosition, getCurrentPosition } from './location';
+
 
 const CREATE_MODE = 'create';
 const EXPLORE_MODE = 'explore';
@@ -18,6 +20,7 @@ export default class Map {
     this.mapMode = EXPLORE_MODE;
     this.geolocateControl = null;
     this.activePost = null;
+    this.initialLocationLoaded = false;
 
 
     if (this.mapEl && this.postCardContainerEl) {
@@ -31,10 +34,9 @@ export default class Map {
   init() {
     this.map = this.buildMap(); // #1
     this.geolocateControl = this.buildGeoControl();
-
+    this.map.addControl(this.geolocateControl); // #2
 
     // Add Current Location via GeoLocate Control
-    this.map.addControl(this.geolocateControl); // #2
     // subscribe to event
     this.map.on('load', (e) => {
       this.geolocateControl.trigger();
@@ -43,9 +45,23 @@ export default class Map {
     // Mapbox listens to the event where the map boundaries shift
     this.map.on('moveend', this.onMapMoveEnd);
 
-    this.geolocateControl.on('geolocate', () => {
+    this.geolocateControl.on('geolocate', (position) => {
       this.removeLoading();
+      this.initialLocationLoaded = true;
+      storeCurrentPosition(position);
     });
+
+    this.geolocateControl.on('error', () => {
+      if (this.initialLocationLoaded === false) {
+        this.removeLoading();
+        this.map.flyTo({
+          center: [144.9890714,-37.8238087],
+          zoom: 15,
+          animate: false
+        })
+        this.initialLocationLoaded = true;
+      }
+    })
 
     setTimeout(() => {
       this.removeLoading();
@@ -132,27 +148,36 @@ export default class Map {
   }
 
   addPostsToMap(posts) {
+
+    // Remove any marker and post that's currently on the map but not in our
+    // new result.
+    const newResultPostIds = posts.map(post => post.id);
+
     Object.keys(this.currentMarkers).forEach(postId => {
-      this.currentMarkers[postId].remove();
-      // When adding posts to map, remove all current markers, not optimal
-      delete this.currentMarkers[postId];
+      // When adding posts to map, remove anything that doesn't overlap with the
+      // current result set.
+      if (!newResultPostIds.includes(parseInt(postId, 10))) {
+        this.currentMarkers[postId].remove();
+        delete this.currentMarkers[postId];
+
+        this.currentPosts[postId].remove();
+        delete this.currentPosts[postId];
+      }
     });
 
-    this.postCardContainerEl.innerHTML = '';
-    this.currentPosts = {};
-
     posts.forEach((post) => {
-      this.addPost(post);
+      if (!this.currentMarkers[post.id.toString()]) {
+        this.addPost(post);
+      }
     });
 
     this.syncActivePost();
   }
 
   addCreateFormToMap = (createFormHtml) => {
-    const userLat = localStorage.getItem('lat');
-    const userLon = localStorage.getItem('lon');
+    const { lat, lon } = getCurrentPosition();
 
-    const userCoords = [ userLon, userLat ];
+    const userCoords = [ lon, lat ];
 
     const popup = this.addPopupToMap(createFormHtml, userCoords, 'create-post-popup');
     this.mainPopup = popup;
@@ -167,8 +192,8 @@ export default class Map {
 
     const popupEl = popup.getElement();
     const postFormEl = popupEl.querySelector('.js-create-post-form');
-    popupEl.querySelector('.js-create-post-lon').value = userLon;
-    popupEl.querySelector('.js-create-post-lat').value = userLat;
+    popupEl.querySelector('.js-create-post-lon').value = lon;
+    popupEl.querySelector('.js-create-post-lat').value = lat;
 
     const postSubmitButton = postFormEl.querySelector(".js-create-post-button");
     postSubmitButton.addEventListener("click", (event) => {

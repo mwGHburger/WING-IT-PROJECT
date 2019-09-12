@@ -19,7 +19,7 @@ class PostsController < ApplicationController
           time: "#{helpers.distance_of_time_in_words(Time.current - post.created_at)} ago",
           title: post.title,
           content: post.content,
-          post_photo: post.photo.url,
+          post_photo: post.photo.url(:small_card),
           id: post.id,
           url: post_path(post),
           latitude: post.latitude,
