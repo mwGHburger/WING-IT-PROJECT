@@ -158,11 +158,13 @@ export default class Map {
     popupEl.querySelector('.js-create-post-lat').value = userLat;
 
     const postSubmitButton = postFormEl.querySelector(".js-create-post-button");
-    postFormEl.addEventListener("click", (event) => {
+    postSubmitButton.addEventListener("click", (event) => {
       // Add loading behavior to the form
       // Disable button
       console.log("Sending stuff"); // happens imediatelly
-      postSubmitButton.value = "Sending..." // hangs for a while...
+      setTimeout(()=>{
+        postSubmitButton.value = "Sending..."
+      }, 1) // Defferred to wait for Rails Ajax to finish manipulating the form.
     });
 
     this.syncMapMode();
