@@ -81,6 +81,10 @@
   bottom: 250px;
   border-radius: 8px;
   padding: 8px;
+
+  .is--post-mode & {
+    display: none;
+  }
 }
 
 .new-post-button a {

@@ -4,9 +4,11 @@
 
 .mapboxgl-popup-content {
   width: 300px;
-  height: 100pxx;
   text-align: center;
   font-family: 'Open Sans', sans-serif;
+  background: none !important;
+  box-shadow: none !important;
+  z-index: 999;
 }
 
 @keyframes bounce {

@@ -3,23 +3,30 @@
   .create-post-form-step-content {
     display: none;
   }
+  .form-group {
+    margin: 0;
+  }
 }
+
 .create-post-form--has-image {
   .create-post-form-step-content {
     display: flex;
     height: 56px;
     border: 1px solid #e5e5e5;
-    margin: 8px;
     border-radius: 4px;
+    background: white;
 
     .post_content textarea {
       color: #000;
-      margin: 16px;
       width: 100%;
       padding: 0;
       overflow: scroll;
       border: white;
       resize: none;
+      margin: 0;
+      padding: 14px;
+      height: auto;
+      max-height: 100%;
     }
   }
 
@@ -64,19 +71,26 @@
     }
 
     .js-post-form-image-wrapper {
-
+      width: 240px;
     }
   }
 }
 
+.create-post-form-step-image {
+  background: transparent;
+}
+
 .create-post-form-upload-button {
-  border: 3px solid #167FFB;
-  color: #167FFB;
-  border-radius: 3px;
+  background: transparent;
+  border: 3px solid #df5715;
+  color: #df5715;
+  font-weight: bold;
+  border-radius: 40px;
+  font-size: 18px;
   padding: 15px;
   margin: 0;
   width: 100%;
   margin: 0 3px;
   width: calc(100% - 6px);
-}
+ }
 

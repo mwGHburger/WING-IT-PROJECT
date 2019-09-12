@@ -33,5 +33,7 @@ export default class FileInputPreview {
 
     this.settings.postFormEl.classList.add('create-post-form--has-image');
     this.postImageWrapperEl.classList.add('d-none');
+
+    this.settings.postFormEl.querySelector('textarea').focus();
   }
 }
