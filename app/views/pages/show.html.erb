@@ -20,17 +20,16 @@
 
     <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
       <% current_user.posts.each do |post| %>
-      <div class="card-trip mb-4">
-        <img src=" <%= cl_image_path post.photo, crop: :fill %>" alt="post-image">
-        <div class="card-trip-infos">
-          <div>
-            <h2><%= post.content %></h2>
-            <p class="mb-4"><%= post.created_at.strftime("posted on: %m/%d/%Y")%></p>
-            <p><%= link_to "See post", post_path(post) %></p>
+        <%= link_to post_path(post), class: 'card-trip mb-4', remote: true do %>
+          <img src=" <%= cl_image_path post.photo, crop: :fill %>" alt="post-image">
+          <div class="card-trip-infos">
+            <div>
+              <h2><%= post.content %></h2>
+              <p class="mb-4"><%= post.created_at.strftime("posted on: %m/%d/%Y")%></p>
+            </div>
+            <h2 class="card-trip-pricing"><i class="fas fa-thumbs-up" style="color: black;"></i> <%= post.get_upvotes.size %></h2>
           </div>
-          <h2 class="card-trip-pricing"><i class="fas fa-thumbs-up" style="color: black;"></i> <%= post.get_upvotes.size %></h2>
-        </div>
-      </div>
+        <% end %>
       <% end %>
     </div>
 
