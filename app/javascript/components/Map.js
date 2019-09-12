@@ -64,7 +64,7 @@ export default class Map {
       },
       trackUserLocation: true,
       fitBoundsOptions: {
-        maxZoom: 15,  // Zoom adjustment
+        maxZoom: 17,  // Zoom adjustment
         linear: false,
         animate: false,
       },
@@ -78,7 +78,7 @@ export default class Map {
       style: 'mapbox://styles/mapbox/light-v10',
       duration: 0.5,
       pitch: 60,
-      zoom: 14,
+      zoom: 16,
       center: [144.991149, -37.8238254]
     });
   }
