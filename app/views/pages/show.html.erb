@@ -2,52 +2,49 @@
 <div class="dashboard">
 
   <div class="dashboard-nav">
-      <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill %>
-      <h3><%= current_user.username.capitalize %></h3>
+      <%= cl_image_tag current_user.photo, crop: :fill, class:"mt-4", style:"height: 80px; width: 80px;" %>
+      <h1><%= current_user.username.capitalize %></h1>
   </div>
   <ul class="nav nav-tabs md-tabs" id="myTabMD" role="tablist">
     <li class="nav-item">
-      <a class="nav-link" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"aria-selected="true">Posts</a>
+      <a class="nav-link" id="home-tab-md" data-toggle="tab" href="#home-md" role="tab" aria-controls="home-md"aria-selected="true">POSTS</a>
     </li>
 
     <li class="nav-item">
-      <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md" aria-selected="false">Bookmarks</a>
+      <a class="nav-link" id="profile-tab-md" data-toggle="tab" href="#profile-md" role="tab" aria-controls="profile-md" aria-selected="false">BOOKMARKS</a>
     </li>
   </ul>
 
 
-  <div class="tab-content card p-4" id="myTabContentMD">
-
+  <div class="tab-content p-4" id="myTabContentMD">
+    <!-- POSTS -->
     <div class="tab-pane fade show active" id="home-md" role="tabpanel" aria-labelledby="home-tab-md">
       <% current_user.posts.each do |post| %>
-        <%= link_to post_path(post), class: 'card-trip mb-4', remote: true do %>
+        <%= link_to post_path(post), class: 'dashboard-card mb-4', remote: true do %>
           <img src=" <%= cl_image_path post.photo, crop: :fill %>" alt="post-image">
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= post.content %></h2>
-              <p class="mb-4"><%= post.created_at.strftime("posted on: %m/%d/%Y")%></p>
-            </div>
-            <h2 class="card-trip-pricing"><i class="fas fa-thumbs-up" style="color: black;"></i> <%= post.get_upvotes.size %></h2>
+          <div class="dashboard-card-content">
+              <span class="flex-grow-1"><i class="fas fa-fire fire-count" style="color: #df5715;"> <span style="font-family: Roboto; font-weight: 400;"><%= post.get_upvotes.size %></span></i></span>
+              <p><%= post.created_at.strftime("Posted on: %m/%d/%Y")%></p>
+          </div>
+        <% end %>
+      <% end %>
+
+    </div>
+    <!-- BOOKMARKS -->
+    <div class="tab-pane fade active" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
+      <% current_user.bookmarks.each do |bookmark| %>
+        <%= link_to post_path(bookmark.post.id), class: 'dashboard-card mb-4', remote: true do %>
+          <img src="<%= cl_image_path bookmark.post.photo, crop: :fill %>" alt="post-image">
+          <div class="dashboard-card-content d-flex align-items-center">
+                <div class="d-flex flex-wrap">
+                <span><i class="far fa-user-circle user-icon"></i></span>
+                <h2><%= bookmark.post.user.username %></h2>
+                </div>
+                <p><%= bookmark.post.created_at.strftime("Posted: %m/%d/%Y") %></p>
           </div>
         <% end %>
       <% end %>
     </div>
-
-    <div class="tab-pane fade active" id="profile-md" role="tabpanel" aria-labelledby="profile-tab-md">
-      <% current_user.bookmarks.each do |bookmark| %>
-        <%= link_to post_path(bookmark.post.id), class: 'card-trip mb-4', remote: true do %>
-          <img src="<%= cl_image_path bookmark.post.photo, crop: :fill %>" alt="post-image">
-          <div class="card-trip-infos">
-            <div>
-              <h2><%= bookmark.post.user.username %></h2>
-              <p><%= bookmark.post.content %></p>
-              <p class="mb-4"><%= bookmark.post.created_at.strftime("Posted: %m/%d/%Y") %></p>
-            </div>
-          </div>
-        </div>
-        <% end %>
-      <% end %>
-      </div>
 
   </div>
 </div>
