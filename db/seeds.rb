@@ -14,28 +14,35 @@ puts 'Assembling users...'
 
 users_attributes = [
   {
-    username:         'John',
-    email:        'john@wick.com',
+    username:         'KeanuReaves',
+    email:        'Keanu@reaves.com',
     password:     123456,
     remote_photo_url: 'https://www.celebplasticsurgeryonline.com/wp-content/uploads/2016/01/Keanu-Reeves-plastic-surgery-6-150x150.jpg'
   },
   {
-    username:         'Tony',
-    email:        'tony@user.com',
+    username:         'TonyTheFoodie',
+    email:        'tony@stark.com',
     password:     123456,
-    remote_photo_url: 'https://gcs.thesouthafrican.com/2018/10/Len-cropped-2017-96x96.jpg'
+    remote_photo_url: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=935&q=80'
   },
   {
-    username:         'Alice',
+    username:         'AliceTravels',
     email:        'alice@user.com',
     password:     123456,
     remote_photo_url: 'http://0.gravatar.com/avatar/30f790b7f70e98813f7393a487bf8f15?s=96&d=mm&r=g'
   },
   {
-    username:         'Susan',
+    username:         'SassySusan',
     email:        'susan@user.com',
     password:     123456,
     remote_photo_url: 'https://a.wattpad.com/useravatar/ToastedBagels.128.633251.jpg'
+
+  },
+  {
+    username:         'PaalR',
+    email:        'paal@user.com',
+    password:     123456,
+    remote_photo_url: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/wqtw0azktsumv6hdkwqo.jpg'
 
   }
 ]
@@ -48,54 +55,53 @@ users << all_users
 all_users = users.flatten
 puts 'Adding Posts'
 
-
 posts_attributes = [
   {
-    title:    'Cool Location',
-    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -37.824636,
-    longitude:      144.992511,
-    remote_photo_url:    "https://cdn.theculturetrip.com/images/56-3958266-144290995102dfa723eae64bd7b9f6696eabd08b7c.jpg",
+    title:    ' BreathtakingPasta',
+    content:  '@TheItalian. The pasta here is breathtaking! You gotta try out the meatball pasta!',
+    latitude:      -37.822687,
+    longitude:      144.989990,
+    remote_photo_url:    "https://images.unsplash.com/photo-1515516969-d4008cc6241a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
+    user_id:        all_users.first.id
+  },
+  {
+    title:    'Winter Illumination!',
+    content:  'This hidden gem is absolutely beautiful!!!',
+    latitude:      -37.822308,
+    longitude:      144.988722,
+    remote_photo_url:    "https://mymodernmet.com/wp/wp-content/uploads/archive/WM2U5MZbcl8jQphw6JIl_1082108286.jpeg",
     user_id:        all_users.sample.id
   },
   {
-    title:    'Nice Place',
-    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -37.8136,
-    longitude:      144.9631,
-    remote_photo_url:    "https://colabcdn.azureedge.net/-/media/Images/Melbourne/Location/1020-680/POSSIBLE-site_locations_1020-680_0008_melbourne.ashx",
+    title:    'Pineapple Pizza',
+    content:  '@PineappleKitchen This place has the best pineapple pizza on EARTH!!!',
+    latitude:      -37.822793,
+    longitude:      144.991326,
+    remote_photo_url:    "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/11/24/17/istock-537640710.jpg?w968h681",
     user_id:        all_users.sample.id
   },
   {
-    title:    'Hidden Gem',
-    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -37.227636,
-    longitude:      164.992211,
-    remote_photo_url:    "https://proxy.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.hiddencitysecrets.com.au%2Fwp-content%2Fuploads%2F2016%2F10%2FRoyal-Saxon-Bar-Richmond-Bars-Melbourne-Cocktail-Top-Best-Good-002.jpg&f=1",
+    title:    'Cool Bar',
+    content:  '@TheDrunkenWhale Fantastic night! Live Music, Moody Atmosphere, Half price happy hour ending at 8pm',
+    latitude:      -37.824925,
+    longitude:      144.990963,
+    remote_photo_url:    "https://images.unsplash.com/photo-1559070581-ec616bb3a176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80",
     user_id:        all_users.sample.id
   },
   {
-    title:    'Good Food',
-    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -37.9021,
-    longitude:      145.0411,
-    remote_photo_url:    "https://i2.au.reastatic.net/800x600/8a6ac19066a6b1e2ac93dd6cb1715cd6204701ab3d78690340f71f204c65681a/main.jpg",
+    title:    'Quaint little restaurant',
+    content:  'Found this hidden gem. Great BBQ service. Workers are lovely!',
+    latitude:      -37.822588,
+    longitude:      144.991940,
+    remote_photo_url:    "https://images.unsplash.com/photo-1476055439777-977cdf3a5699?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80",
     user_id:        all_users.sample.id
   },
   {
-    title:    'Swan Street Brilliance',
-    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -37.9525,
-    longitude:      145.0123,
-    remote_photo_url:    "https://www.film.vic.gov.au/images/locations/City%20of%20Yarra/Richmond_-_Swan_street/mcyar-sd-SwanStreet-Richmond_004.jpg",
-    user_id:        all_users.sample.id
-  },
-  {
-    title:    'Very Cool!',
-    content:  'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Perferendis qui deserunt, repellat ipsam voluptates magnam ipsum quam minima? Perspiciatis, porro eligendi sapiente commodi, quam nulla sed? Et quos repudiandae cum!',
-    latitude:      -37.8400,
-    longitude:     144.9890,
-    remote_photo_url:    "https://adventuresofaplusk.com/wp-content/uploads/2019/05/DSC_6285-1024x684.jpg",
+    title:    'Cool Market Place',
+    content:  'Found this small little marketplace. Hope this helps anyone looking for something interesting to buy!',
+    latitude:      -37.821351,
+    longitude:     144.990868,
+    remote_photo_url:    "https://images.unsplash.com/photo-1506972905718-359e73c4c49a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
     user_id:        all_users.sample.id
   }
 ]
