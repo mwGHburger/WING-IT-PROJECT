@@ -142,6 +142,7 @@ export default class Map {
     const userCoords = [ userLon, userLat ];
 
     const popup = this.addPopupToMap(createFormHtml, userCoords, 'create-post-popup');
+    this.mainPopup = popup;
     popup.on('close', () => {
       this.mapMode = EXPLORE_MODE;
       this.syncMapMode();
@@ -155,6 +156,16 @@ export default class Map {
     const postFormEl = popupEl.querySelector('.js-create-post-form');
     popupEl.querySelector('.js-create-post-lon').value = userLon;
     popupEl.querySelector('.js-create-post-lat').value = userLat;
+
+    const postSubmitButton = postFormEl.querySelector(".js-create-post-button");
+    postSubmitButton.addEventListener("click", (event) => {
+      // Add loading behavior to the form
+      // Disable button
+      console.log("Sending stuff"); // happens imediatelly
+      setTimeout(()=>{
+        postSubmitButton.value = "Sending..."
+      }, 1) // Defferred to wait for Rails Ajax to finish manipulating the form.
+    });
 
     this.syncMapMode();
 

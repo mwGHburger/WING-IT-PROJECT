@@ -1,6 +1,6 @@
 <!-- <div class="p-3 post-form-card js-create-post-form" style="border-radius: 15px; position: relative; background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1475688621402-4257c812d6db?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3367&q=80'); background-size: cover; margin: auto;"> -->
 <div class="js-create-post-form create-post-form">
-  <%= simple_form_for post do |f| %>
+  <%= simple_form_for post, remote: true do |f| %>
     <%= f.input :latitude, input_html: {class: "js-create-post-lat"}, wrapper_html: { class: 'd-none'}, as: :hidden %>
     <%= f.input :longitude, input_html: {class: "js-create-post-lon"}, wrapper_html: { class: 'd-none'}, as: :hidden %>
 

@@ -48,7 +48,10 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user
     if @post.save
-      redirect_to map_path
+      respond_to do |format|
+        format.html { redirect_to map_path }
+        format.js
+      end
     else
       render :new
     end
