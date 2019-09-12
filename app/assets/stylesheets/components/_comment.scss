@@ -29,16 +29,6 @@
   max-width: 296px;
   height: 52px;
 
-  .input-comment-content {
-    height: 24px;
-    border: none;
-
-    textarea::placeholder {
-      background: transparent;
-      color: rgba(236, 236, 236, 0.2);
-    }
-  }
-
   .post-comment-btn {
     border: none;
     background: none;
@@ -47,6 +37,7 @@
     padding: 0px 16px;
   }
 }
+
 
 // -----------------------------------------------------
 
