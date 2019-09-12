@@ -44,6 +44,13 @@ users_attributes = [
     password:     123456,
     remote_photo_url: 'https://res.cloudinary.com/wagon/image/upload/c_fill,g_face,h_200,w_200/wqtw0azktsumv6hdkwqo.jpg'
 
+  },
+  {
+    username:         'SarahTheSurfer',
+    email:        'sara@user.com',
+    password:     123456,
+    remote_photo_url: 'https://images.unsplash.com/photo-1542103749-8ef59b94f47e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
+
   }
 ]
 
@@ -62,7 +69,7 @@ posts_attributes = [
     latitude:      -37.822687,
     longitude:      144.989990,
     remote_photo_url:    "https://images.unsplash.com/photo-1515516969-d4008cc6241a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=934&q=80",
-    user_id:        all_users.first.id
+    user_id:        all_users[0].id
   },
   {
     title:    'Winter Illumination!',
@@ -70,7 +77,7 @@ posts_attributes = [
     latitude:      -37.822308,
     longitude:      144.988722,
     remote_photo_url:    "https://mymodernmet.com/wp/wp-content/uploads/archive/WM2U5MZbcl8jQphw6JIl_1082108286.jpeg",
-    user_id:        all_users.sample.id
+    user_id:        all_users[1].id
   },
   {
     title:    'Pineapple Pizza',
@@ -78,7 +85,7 @@ posts_attributes = [
     latitude:      -37.822793,
     longitude:      144.991326,
     remote_photo_url:    "https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/11/24/17/istock-537640710.jpg?w968h681",
-    user_id:        all_users.sample.id
+    user_id:        all_users[2].id
   },
   {
     title:    'Cool Bar',
@@ -86,7 +93,7 @@ posts_attributes = [
     latitude:      -37.824925,
     longitude:      144.990963,
     remote_photo_url:    "https://images.unsplash.com/photo-1559070581-ec616bb3a176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80",
-    user_id:        all_users.sample.id
+    user_id:        all_users[3].id
   },
   {
     title:    'Quaint little restaurant',
@@ -94,7 +101,7 @@ posts_attributes = [
     latitude:      -37.822588,
     longitude:      144.991940,
     remote_photo_url:    "https://images.unsplash.com/photo-1476055439777-977cdf3a5699?ixlib=rb-1.2.1&auto=format&fit=crop&w=2100&q=80",
-    user_id:        all_users.sample.id
+    user_id:        all_users[4].id
   },
   {
     title:    'Cool Market Place',
@@ -102,7 +109,7 @@ posts_attributes = [
     latitude:      -37.821351,
     longitude:     144.990868,
     remote_photo_url:    "https://images.unsplash.com/photo-1506972905718-359e73c4c49a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2100&q=80",
-    user_id:        all_users.sample.id
+    user_id:        all_users[5].id
   }
 ]
 
