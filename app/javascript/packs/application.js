@@ -8,12 +8,14 @@ import { initLocation } from '../components/location';
 import '../components/nearby_markers';
 import Map from '../components/Map';
 import { initMapChannel } from "../channels/map_channel"
+import smoothscroll from 'smoothscroll-polyfill';
 
 initMapChannel();
 
 initModal();
 initPostLocation();
 initLocation();
+smoothscroll.polyfill();
 
 window.mainMap = new Map('#map', '.js-post-container');
 

@@ -10,7 +10,8 @@
     "mapbox-gl": "^1.3.0",
     "ngrok": "^3.2.5",
     "popmotion": "^8.7.0",
-    "popper.js": "^1.15.0"
+    "popper.js": "^1.15.0",
+    "smoothscroll-polyfill": "^0.4.4"
   },
   "devDependencies": {
     "webpack-dev-server": "^3.8.0"
