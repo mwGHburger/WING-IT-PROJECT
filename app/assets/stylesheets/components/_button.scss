@@ -1,4 +1,11 @@
+.btn:hover {
+  color: #fff;
+  text-decoration: none;
+}
 
+.btn:focus {
+  box-shadow: none;
+}
 
 .btn-explore {
   color: #df5715;
@@ -9,6 +16,11 @@
   border-radius: 50px;
   transition: opacity 0.3s ease;
   letter-spacing: 1px;
+}
+
+.btn-explore:hover {
+  text-decoration: none;
+  color: #df5715;
 }
 
 .btn-explore:active {
