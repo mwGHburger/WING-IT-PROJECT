@@ -1,8 +1,8 @@
 <div class="comment-box">
+  <%= cl_image_tag current_user.photo, height: 50, width: 50, crop: :fill %>
   <div class="comment-info">
-    <p><%= comment.content %></p>
+    <p><small><%= comment.user.username %></small></p>
+    <p class="pb-2"><%= comment.content %></p>
+    <p class="pb-1"><small><%= distance_of_time_in_words(Time.current - comment.created_at) %></small></p>
   </div>
-  <p>
-    <strong><%= comment.user.username %> posted <%= distance_of_time_in_words(Time.current - comment.created_at) %> ago</strong>
-  </p>
 </div>

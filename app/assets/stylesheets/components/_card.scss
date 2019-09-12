@@ -1,6 +1,6 @@
 .card-small {
-  min-width: 180px;
-  max-width: 180px;
+  min-width: 160px;
+  max-width: 160px;
   display: inline-block;
   height: 100%;
   overflow: hidden;
@@ -36,7 +36,7 @@
   height: 40px;
   border-radius: 50%;
   box-shadow: 0 1px 2px rgba(0,0,0,0.2);
-  border: white 1px solid;
+  border: orange 1px solid;
   object-fit: cover;
 }
 
@@ -108,7 +108,7 @@
   }
 
   p {
-    font-size: 12px;
+    font-size: 16px;
     margin: auto;
     color: $white;
     opacity: 1;
@@ -145,10 +145,10 @@
 .icon-large-card-container {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   position: relative;
-  border-bottom: 1px solid white;
-  padding-bottom: 4px;
+  justify-content: space-between;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(236, 236, 236, 0.4);
 }
 
 .i-time {
@@ -191,6 +191,7 @@
     transform: scale(1.2);
   }
 }
+
 // comment button
 .comment-btn {
   margin-right: 16px;

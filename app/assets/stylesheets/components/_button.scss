@@ -1,12 +1,21 @@
+
+
 .btn-explore {
-  color: #fff;
+  color: #df5715;
   font-weight: bold;
-  background-color: #df5715;
+  background: transparent;
   padding: 12px 40px;
+  border: 1px solid #df5715;
   border-radius: 50px;
   transition: opacity 0.3s ease;
   letter-spacing: 1px;
 }
+
+.btn-explore:active {
+  text-decoration: none;
+  color: #df5715;
+}
+
 
 .btn-time-posted {
   text-align: center;
@@ -63,11 +72,20 @@
 }
 
 .new-post-button a {
+  text-decoration: none;
+  color: white;
   font-size: 24px;
-  background-color: green;
+  font-weight: bold;
+  background-color: #df5715;
   border-radius: 50%;
   height: 50px;
   width: 50px;
+
+  a:active {
+    border: none;
+    text-decoration: none;
+    color: #fff;
+  }
 }
 
 // Changing upload photo button

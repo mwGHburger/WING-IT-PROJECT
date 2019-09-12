@@ -75,7 +75,7 @@ export default class Map {
     mapboxgl.accessToken = this.mapEl.dataset.mapboxApiKey;
     return new mapboxgl.Map({
       container: this.mapEl,
-      style: 'mapbox://styles/mapbox/light-v10',
+      style: 'mapbox://styles/mapbox/dark-v10',
       duration: 0.5,
       pitch: 60,
       zoom: 16,
