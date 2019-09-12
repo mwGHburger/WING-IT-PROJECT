@@ -42,7 +42,7 @@
           <div>
             <h2><%= bookmark.post.user.username %></h2>
             <p><%= bookmark.post.content %></p>
-            <p class="mb-4"><%= bookmark.post.created_at.strftime("Posted on: %m/%d/%Y") %></p>
+            <p class="mb-4"><%= bookmark.post.created_at.strftime("Posted: %m/%d/%Y") %></p>
             <p><%= link_to "See post", post_path(bookmark.post) %></p>
           </div>
         </div>
