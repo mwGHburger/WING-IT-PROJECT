@@ -5,7 +5,7 @@
       <!-- flex box input field and button -->
       <div class="form-create-post-inner">
         <%= form.input :content, label: false, input_html: { class: 'input-comment-content' }, placeholder: "Add a comment" %>
-        <%= form.button :submit, class: 'post-comment-btn', value: "Post" %>
+        <%= form.submit "Post", class: 'post-comment-btn' %>
       </div>
     <% end %>
   </div>
