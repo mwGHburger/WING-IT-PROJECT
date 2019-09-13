@@ -62,8 +62,9 @@
     // font-weight: bold;
 
     .mapboxgl-popup-close-button {
-      color: #fff;
+      color: #df5715;
       font-size: 24px;
+      font-weight: 300;
       position: absolute;
       right: 72px;
     }
@@ -83,7 +84,7 @@
   color: #fff;
   font-weight: normal;
   border-radius: 40px;
-  font-size: 18px;
+  font-size: 16px;
   padding: 15px;
   margin: 0;
   width: 100%;
