@@ -92,7 +92,7 @@ posts_attributes = [
     content:  '@TheDrunkenWhale Fantastic night! Live Music, Moody Atmosphere, Half price happy hour ending at 8pm',
     latitude:      -37.824925,
     longitude:      144.990963,
-    remote_photo_url:    "https://images.unsplash.com/photo-1559070581-ec616bb3a176?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2102&q=80",
+    remote_photo_url:    "https://images.pexels.com/photos/1185440/pexels-photo-1185440.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260",
     user_id:        all_users[3].id
   },
   {
