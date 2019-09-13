@@ -1,8 +1,12 @@
 {
- "name": "WingIt",
- "short_name": "WingIt",
- "display": "standalone",
- "icons": [
+  "name": "WingIt",
+  "short_name": "WingIt",
+  "theme_color": "#061b33",
+  "background_color": "#061b33",
+  "display": "fullscreen",
+  "orientation": "portrait",
+  "start_url": "/",
+  "icons": [
   {
    "src": "\/android-icon-36x36.png",
    "sizes": "36x36",
@@ -28,7 +32,7 @@
    "density": "2.0"
   },
   {
-   "src": "\/android-icon-144x144.png",
+   "src": "<%= asset_path('android-icon-144x144.png') %>",
    "sizes": "144x144",
    "type": "image\/png",
    "density": "3.0"
