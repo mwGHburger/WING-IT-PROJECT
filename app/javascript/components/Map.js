@@ -291,7 +291,6 @@ export default class Map {
 
     cardEl.innerHTML = `
       <img async class='js-post-photo' src='${post.post_photo}' id="${uniquePhotoId}" onerror="window.onMapPhotoError('${uniquePhotoId}')" />
-      <img async class='js-user-avatar' src='${post.user.photo.url}' />
       <h2 class='card-small-title'>${post.content}
       <p class='card-small-time'>${post.time}</p></h2>
     `;
