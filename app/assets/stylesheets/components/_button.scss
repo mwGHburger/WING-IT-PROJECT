@@ -25,7 +25,30 @@
 
 .btn-explore:active {
   text-decoration: none;
+  color: #112e49;
+  background: #df5715;
+}
+
+.btn-explore-btm {
   color: #df5715;
+  font-weight: bold;
+  background: transparent;
+  padding: 12px 40px;
+  border: 1px solid #df5715;
+  border-radius: 50px;
+  transition: opacity 0.3s ease;
+  letter-spacing: 1px;
+}
+
+.btn-explore-btm:hover {
+  text-decoration: none;
+  color: #df5715;
+}
+
+.btn-explore-btm:active {
+  text-decoration: none;
+  color: rgb(255,255,255);
+  background: #df5715;
 }
 
 

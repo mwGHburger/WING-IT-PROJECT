@@ -20,7 +20,7 @@ users_attributes = [
     remote_photo_url: 'https://www.celebplasticsurgeryonline.com/wp-content/uploads/2016/01/Keanu-Reeves-plastic-surgery-6-150x150.jpg'
   },
   {
-    username:         'TonyTheFoodie',
+    username:         'TonyTheTraveller',
     email:        'tony@stark.com',
     password:     123456,
     remote_photo_url: 'https://images.unsplash.com/photo-1544723795-3fb6469f5b39?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=935&q=80'
