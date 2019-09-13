@@ -6,7 +6,7 @@
 
     <div class="create-post-form-step-image">
       <img class="js-post-form-upload-preview create-post-form-preview d-none" />
-      <%= f.input :photo, input_html: { class: "js-post-form-image-field" }, label_html: { class: 'create-post-form-upload-button' }, wrapper_html: { class: 'js-post-form-image-wrapper mb-0'}, label: "Upload photo" %>
+      <%= f.input :photo, input_html: { class: "js-post-form-image-field" }, label_html: { class: 'create-post-form-upload-button' }, wrapper_html: { class: 'js-post-form-image-wrapper mb-0'}, label: "upload photo" %>
       <input type="file" accept="image/*" id="capture" capture="camera">
       <%= f.input :photo_cache, as: :hidden, wrapper_html: { class: 'd-none' } %>
     </div>
