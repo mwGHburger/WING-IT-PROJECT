@@ -45,7 +45,7 @@
   font-weight: 300;
   text-decoration: none;
   padding-bottom: 8px;
-  transition: border-bottom 0.2s color 0.2s;
+  transition: border-bottom 0.2s color 0.156s;
 }
 
 .nav-tabs .nav-link.active, .nav-tabs .nav-item.show .nav-link {
@@ -64,16 +64,16 @@
 .dashboard-card {
   overflow: hidden;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
   display: block;
   color: inherit;
   border-radius: 20px;
   height: 256px;
-  background-image: cover;
 
   &:hover {
     text-decoration: none;
     color: inherit;
+    transform: translateY(-4px);
   }
   img {
     height: 200px;
