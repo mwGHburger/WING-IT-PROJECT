@@ -4,30 +4,31 @@
   background-size: auto; /* shows the whole image/background */
   background-position: center;
   background-color: #112e49;
-  width: 100%;
-  height: 55vh; /* fill this header with 100% of the viewpoint. */
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.landing-banner-sub {
-  background-position: center;
-  background-color: #112e49;
-  width: 100%;
-  height: 30vh; /* fill this header with 100% of the viewpoint. */
-  background-repeat: no-repeat;
-  background-size: 540px 300px;
-  position: relative;
-  padding-bottom: 280px;
 }
 
 
 .banner-text-box {
   text-align: center;
+  h3 {
+    letter-spacing: 2px;
+    font-size: 64px;
+    color: white;
+    padding-top: 200px
+  }
+}
 
-  h1 {
-    letter-spacing: 1.2px;
+.banner-map-icon{
+  position: relative;
+  margin-top: 100px;
+  img {
+    width: 50%;
+  }
+  i {
+    position: absolute;
+    top: 10%;
+    left: 45%;
+    height: 10px;
+    font-size: 40px;
   }
 }
 
