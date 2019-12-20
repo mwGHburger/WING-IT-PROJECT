@@ -1,6 +1,6 @@
 .navbar-lewagon {
   background-color: transparent;
-  width: 50%;
+  width: 100%;
   position: fixed;
 }
 
@@ -20,4 +20,9 @@
   li {
     display: inline-block;
   }
+}
+
+.nav-link {
+  font-weight: 400;
+  font-size: 18px;
 }
