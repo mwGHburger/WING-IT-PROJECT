@@ -1,9 +1,11 @@
 <div class="home__container">
-    <section class="hero__banner">
+    <section class="section hero__banner">
     <%= render 'shared/navbar'%>
-        <div class="hero__banner--text">
+        <div class="banner__text">
             <div>
-                <h4>Travel.<br>For the<br>spontaneous</h4>
+                <p>Travel.<br>
+                For the<br>
+                spontaneous</p>
                 <%= link_to "Explore the map", map_path, class: "btn__explore"  %>
             </div>
         </div>
@@ -15,6 +17,24 @@
         </div> %>
     </section>
 
-    <section class="section__features">
+    <section class="section section__about">
+        <div class="banner__text">
+             <div>
+                <p>Take the stress<br>out of travel
+                </p>
+                <%= link_to "Explore the map", map_path, class: "btn__explore"  %>
+            </div>
+        </div>
+        <div class="composition">
+            <img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="" class="composition__photo composition__photo--p1">
+            <img src="https://images.unsplash.com/photo-1517842264405-72bb906a1936?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="" class="composition__photo composition__photo--p2">
+            <img src="https://images.unsplash.com/photo-1533243216203-8c08406d4583?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="" class="composition__photo composition__photo--p3">
+        </div>
+    </section>
+
+    <section class="section section__discover">
+        <div class="page__border">
+            <h1>Hellow</h1>
+        </div>
     </section>
 </div>
