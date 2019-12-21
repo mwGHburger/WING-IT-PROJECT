@@ -1,4 +1,4 @@
-<div class="home__container">
+<section class="home__container">
     <section class="section hero__banner">
     <%= render 'shared/navbar'%>
         <div class="banner__text">
@@ -7,14 +7,14 @@
                 For the<br>
                 spontaneous</p>
                 <%= link_to "Explore the map", map_path, class: "btn__explore"  %>
+                <%# <div class="arrow__container">
+                    <i class="fas fa-long-arrow-alt-down down"></i>
+                </div> %>
             </div>
         </div>
         <div class="hero__banner--image">
             <img src="https://images.unsplash.com/photo-1484804959297-65e7c19d7c9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1914&q=80">
         </div>
-        <%# <div class="arrow__container">
-            <i class="fas fa-chevron-down"></i>
-        </div> %>
     </section>
 
     <section class="section section__about">
@@ -33,8 +33,49 @@
     </section>
 
     <section class="section section__discover">
-        <div class="page__border">
-            <h1>Hellow</h1>
-        </div>
+            <div>
+                <p class="section__discover--heading">Sign up and start discovering now</p>
+            </div>
+            <div class="discover__cards--container">
+                <div class="discover__cards">
+                    <div class="discover__info">
+                        <i class="fas fa-globe discover__icons"></i>
+                        <h3>Explore</h3>
+                    </div>
+                    <p>Discover the map for <br>activities near you</p>
+                </div>
+                <div class="discover__cards">
+                    <div class="discover__info">
+                        <i class="fas fa-globe discover__icons"></i>
+                        <h3>Explore</h3>
+                    </div>
+                    <p>Discover the map for <br>activities near you</p>
+                </div>
+                <div class="discover__cards">
+                    <div class="discover__info">
+                        <i class="fas fa-globe discover__icons"></i>
+                        <h3>Explore</h3>
+                    </div>
+                    <p>Discover the map for <br>activities near you</p>
+                </div>
+            </div>
     </section>
+
+    <section class="section section__signup">
+         <div class="banner__text signup__text">
+             <div>
+                <h2>JOIN THE COMMUNITY</h2>
+                <p>Sign up and start discovering now</p>
+                <%= link_to "Sign up", map_path, class: "btn__explore"  %>
+            </div>
+        </div>
+        
+    </section>
+        <section class="section section__footer">
+            <div class="footer__text">
+                <p>&copy; 2019 by Wing It. All rights reserved.</p>
+            </div>
+        </section>
+
+
 </div>
