@@ -3,9 +3,7 @@
     <%= render 'shared/navbar'%>
         <div class="banner__text">
             <div>
-                <p>Travel.<br>
-                For the<br>
-                spontaneous</p>
+                <p>Travel for the <br>unplanned</p>
                 <%= link_to "Explore the map", map_path, class: "btn__explore"  %>
                 <%# <div class="arrow__container">
                     <i class="fas fa-long-arrow-alt-down down"></i>
@@ -47,14 +45,14 @@
                 <div class="discover__cards">
                     <div class="discover__info">
                         <i class="fas fa-globe discover__icons"></i>
-                        <h3>Explore</h3>
+                        <h3>Connect</h3>
                     </div>
                     <p>Discover the map for <br>activities near you</p>
                 </div>
                 <div class="discover__cards">
                     <div class="discover__info">
                         <i class="fas fa-globe discover__icons"></i>
-                        <h3>Explore</h3>
+                        <h3>Inspire</h3>
                     </div>
                     <p>Discover the map for <br>activities near you</p>
                 </div>
@@ -68,14 +66,17 @@
                 <p>Sign up and start discovering now</p>
                 <%= link_to "Sign up", map_path, class: "btn__explore"  %>
             </div>
-        </div>
-        
-    </section>
-        <section class="section section__footer">
-            <div class="footer__text">
-                <p>&copy; 2019 by Wing It. All rights reserved.</p>
+            <div class="sign__image">
+                <img src="https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80">
             </div>
-        </section>
+        </div> 
+    </section>
+
+    <section class="section section__footer">
+        <div class="footer__text">
+            <p>&copy; 2019 by Wing It. All rights reserved.</p>
+        </div>
+    </section>
 
 
 </div>
