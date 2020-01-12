@@ -1,80 +1,82 @@
+<section class="home__container">
+    <section class="section hero__banner">
+    <%= render 'shared/navbar'%>
+        <div class="banner__text">
+            <div>
+                <p>Travel for the <br>unplanned</p>
+                <%= link_to "Explore the map", map_path, class: "btn__explore"  %>
+                <%# <div class="arrow__container">
+                    <i class="fas fa-long-arrow-alt-down down"></i>
+                </div> %>
+            </div>
+        </div>
+        <div class="hero__banner--image">
+            <img src="https://images.unsplash.com/photo-1484804959297-65e7c19d7c9f?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1914&q=80">
+        </div>
+    </section>
 
-<%= render 'shared/navbar'%>
-<div class="landing-banner-main">
+    <section class="section section__about">
+        <div class="banner__text">
+             <div>
+                <p>Take the stress<br>out of travel
+                </p>
+                <%= link_to "Explore the map", map_path, class: "btn__explore"  %>
+            </div>
+        </div>
+        <div class="composition">
+            <img src="https://images.unsplash.com/photo-1515552726023-7125c8d07fb3?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80" alt="" class="composition__photo composition__photo--p1">
+            <img src="https://images.unsplash.com/photo-1517842264405-72bb906a1936?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=2850&q=80" alt="" class="composition__photo composition__photo--p2">
+            <img src="https://images.unsplash.com/photo-1533243216203-8c08406d4583?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1951&q=80" alt="" class="composition__photo composition__photo--p3">
+        </div>
+    </section>
 
-  <img class="logo" src="<%= asset_path('icon-256.png') %>">
+    <section class="section section__discover">
+            <div>
+                <p class="section__discover--heading">Sign up and start discovering now</p>
+            </div>
+            <div class="discover__cards--container">
+                <div class="discover__cards">
+                    <div class="discover__info">
+                        <i class="fas fa-globe discover__icons"></i>
+                        <h3>Explore</h3>
+                    </div>
+                    <p>Discover the map for <br>activities near you</p>
+                </div>
+                <div class="discover__cards">
+                    <div class="discover__info">
+                        <i class="fas fa-globe discover__icons"></i>
+                        <h3>Connect</h3>
+                    </div>
+                    <p>Discover the map for <br>activities near you</p>
+                </div>
+                <div class="discover__cards">
+                    <div class="discover__info">
+                        <i class="fas fa-globe discover__icons"></i>
+                        <h3>Inspire</h3>
+                    </div>
+                    <p>Discover the map for <br>activities near you</p>
+                </div>
+            </div>
+    </section>
 
-  <div class="banner-text-box">
-    <h3 class="mb-5">Explore around you,<br>with WingIt</h3>
-    <%= link_to "LET'S EXPLORE", map_path, class: "btn-explore"  %>
+    <section class="section section__signup">
+         <div class="banner__text signup__text">
+             <div>
+                <h2>JOIN THE COMMUNITY</h2>
+                <p>Sign up and start discovering now</p>
+                <%= link_to "Sign up", map_path, class: "btn__explore"  %>
+            </div>
+            <div class="sign__image">
+                <img src="https://images.unsplash.com/photo-1507608443039-bfde4fbcd142?ixlib=rb-1.2.1&auto=format&fit=crop&w=934&q=80">
+            </div>
+        </div> 
+    </section>
 
-    <div class="banner-map-icon">
-      <%= image_tag("banner-map.jpg",:alt => "banner-map image") %>
-      <i class="fas fa-map-marker-alt bounce ocation-icon"></i>
-    </div>
-  </div>
+    <section class="section section__footer">
+        <div class="footer__text">
+            <p>&copy; 2019 by Wing It. All rights reserved.</p>
+        </div>
+    </section>
 
 
 </div>
-
-<section class="section-features" id="features">
-  <div class="section-features-inner">
-    <div class="row flex-column justify-content-between">
-        <div class="mb-5">
-            <i class="fab fa-wpexplorer icon-big"></i>
-            <h3 style="font-weight: 600; font-size: 32px;">Explore</h3>
-            <p style="font-weight: 300">Explore cool things nearby</p>
-        </div>
-        <div class="mb-5">
-            <i class="fas fa-users icon-big"></i>
-            <h3 style="font-weight: 600; font-size: 32px;">Share</h3>
-            <p style="font-weight: 300;">Share your experiences with other</p>
-        </div>
-        <div class="mb-4">
-            <i class="fab fa-connectdevelop icon-big"></i>
-            <h3 style="font-weight: 600; font-size: 32px;">Connect</h3>
-            <p style="font-weight: 300;">Interact with other people</p>
-        </div>
-      </div>
-    </div>
-</section>
-
-<section class="section-discover">
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1567&q=80)">
-    Discover Food
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1469474968028-56623f02e42e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1953&q=80)">
-    Discover Nature
-  </div>
-
-  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://images.unsplash.com/photo-1565791380745-35e40266d760?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=941&q=80)">
-    Discover Hidden Gems
-  </div>
-
-</section>
-
-<section class="section-signup">
-  <div class="banner-text-box-signup">
-    <h3 class="mb-2">Start discovering</h3>
-    <img src="https://cdn.dribbble.com/users/1747793/screenshots/4328938/web-loop.gif">
-    <%= link_to "LET'S EXPLORE", map_path, class: "btn-explore-btm"  %>
-  </div>
-</section>
-
-<section class="section-footer">
-  <p class="pt-4">&copy; 2019 by Wingit. All rights reserved.</p>
-</section>
-
-
-
-
-
-
-
-
-
-
-
-
-
