@@ -22,7 +22,7 @@ gem 'devise'
 gem 'cloudinary', '~> 1.9.1'
 
 # Added CarrierWave Gem
-gem 'carrierwave', '~> 1.2'
+gem 'carrierwave', '~> 1.3'
 
 # Added acts as votable gem
 gem 'acts_as_votable'
